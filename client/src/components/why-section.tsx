@@ -53,16 +53,13 @@ export function WhySection() {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    if (prefersReducedMotion) {
+      return;
+    }
+
     const cards = cardsContainer.querySelectorAll(".feature-card");
 
     if (!cards.length) return;
-
-    if (prefersReducedMotion) {
-      gsap.set(title, { opacity: 1, y: 0 });
-      gsap.set(text, { opacity: 1, y: 0 });
-      gsap.set(cards, { opacity: 1, y: 0 });
-      return;
-    }
 
     const isSmallScreen =
       typeof window !== "undefined" &&
@@ -162,11 +159,7 @@ export function WhySection() {
             className="text-4xl md:text-5xl font-extrabold mb-6 text-white font-display tracking-tight"
           >
             {titleText.split("").map((char, index) => (
-              <span
-                key={index}
-                data-char
-                className="inline-block opacity-0 translate-y-5"
-              >
+              <span key={index} data-char className="inline-block">
                 {char === " " ? "\u00A0" : char}
               </span>
             ))}
@@ -174,7 +167,7 @@ export function WhySection() {
 
           <p
             ref={textRef}
-            className="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed opacity-0 translate-y-5"
+            className="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed"
           >
             Somos uma agência de Marketing de Crescimento especializada no mercado de delivery. Criamos o Método CAC e é através dele que os nossos clientes batem recorde de faturamento todos os meses.
           </p>
