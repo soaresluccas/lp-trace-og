@@ -17,7 +17,7 @@ export function HeroSection() {
       {/* Background Image with Overlay */}
       <div className=" absolute inset-0 z-0">
         <img 
-          src={heroBg} 
+          src="/831475.jpg" 
           alt="Delicious delivery food" 
           className="w-full h-full object-cover grayscale-[30%]"
         />

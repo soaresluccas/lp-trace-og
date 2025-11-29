@@ -207,7 +207,7 @@ export function WhySection() {
 
           <motion.p
             ref={textRef}
-            className="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed"
+            className="max-w-3xl mx-auto text-[13px] text-gray-400 leading-relaxed"
             initial={
               isSmallScreen && !prefersReducedMotion
                 ? { y: 40 }
