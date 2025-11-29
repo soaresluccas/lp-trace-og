@@ -1,7 +1,10 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Target, TrendingUp, BarChart3, Zap, ArrowRight } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const features = [
   {
@@ -31,6 +34,77 @@ const features = [
 ];
 
 export function WhySection() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const cardsRef = useRef<HTMLDivElement | null>(null);
+  const textRef = useRef<HTMLParagraphElement | null>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = sectionRef.current;
+    const title = titleRef.current;
+    const cardsContainer = cardsRef.current;
+    const text = textRef.current;
+
+    if (!section || !title || !cardsContainer || !text) return;
+
+    const chars = title.querySelectorAll("span[data-char]");
+    const cards = cardsContainer.querySelectorAll(".feature-card");
+
+    if (!chars.length || !cards.length) return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "+=1200",
+        scrub: true,
+        pin: true,
+        pinSpacing: true,
+      },
+    });
+
+    tl.fromTo(
+      chars,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.04,
+        ease: "power2.out",
+      }
+    )
+      .fromTo(
+        text,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power2.out",
+        },
+        ">+0.2"
+      )
+      .fromTo(
+        cards,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.15,
+          ease: "power2.out",
+        },
+        ">+0.3"
+      );
+
+    return () => {
+      tl.scrollTrigger?.kill();
+      tl.kill();
+    };
+  }, []);
+
+  const titleText = "Por que escolher a Trace Company?";
+
   const scrollToForm = () => {
     const formElement = document.getElementById("lead-form-container");
     if (formElement) {
@@ -39,51 +113,52 @@ export function WhySection() {
   };
 
   return (
-    <section className="relative py-32 px-6 overflow-hidden bg-[#070505]">
+    <section
+      ref={sectionRef}
+      className="relative py-40 md:py-48 px-6 overflow-hidden bg-[#070505] min-h-[140vh] md:min-h-[160vh]"
+    >
       {/* Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[50%] rounded-[40%] bg-[radial-gradient(circle_at_center,rgba(255,208,0,0.15)_0%,rgba(184,122,0,0.05)_30%,transparent_60%)] blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[50%] rounded-[40%] bg-[radial-gradient(circle_at_center,rgba(255,208,0,0.06)_0%,rgba(184,122,0,0.02)_30%,transparent_60%)]" />
       </div>
 
       <div className="relative z-10 max-w-[1200px] mx-auto">
         {/* Header */}
         <div className="text-center mb-16 md:mb-24">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-[#999] drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)] font-display tracking-tight [text-shadow:0_0_30px_rgba(255,255,255,0.3)]"
+          <h2
+            ref={titleRef}
+            className="text-4xl md:text-5xl font-extrabold mb-6 text-white font-display tracking-tight"
           >
-            Por que escolher a Trace Company?
-          </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed"
+            {titleText.split("").map((char, index) => (
+              <span
+                key={index}
+                data-char
+                className="inline-block opacity-0 translate-y-5"
+              >
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </h2>
+
+          <p
+            ref={textRef}
+            className="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed opacity-0 translate-y-5"
           >
             Somos uma agência de Marketing de Crescimento especializada no mercado de delivery. Criamos o Método CAC e é através dele que os nossos clientes batem recorde de faturamento todos os meses.
-          </motion.p>
+          </p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        <div
+          ref={cardsRef}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
+        >
           {features.map((feature, index) => (
-            <motion.div
-              key={feature.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
+            <div key={feature.id} className="feature-card">
               <Card className="group relative p-8 h-full bg-[#0f0f0f]/80 border-white/5 hover:border-white/10 transition-all duration-500 overflow-hidden backdrop-blur-sm hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]">
-                
                 {/* Hover Gradient Background */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[linear-gradient(135deg,rgba(255,208,0,0.03)_0%,rgba(184,122,0,0.01)_100%)]" />
-                
+
                 {/* Progressive Bottom Bar */}
                 <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#FFD000] to-[#FF5A00] group-hover:w-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,208,0,0.5)]" />
 
@@ -96,18 +171,18 @@ export function WhySection() {
                   <h3 className="text-2xl font-bold text-white mb-4 font-display group-hover:text-[#FFD000] transition-colors duration-300">
                     {feature.title}
                   </h3>
-                  
+
                   <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
                     {feature.text}
                   </p>
                 </div>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* CTA */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -9,7 +9,7 @@ export default function Home() {
       
       {/* Footer / Copyright */}
       <footer className="py-8 text-center text-muted-foreground text-sm bg-[#070505]">
-        <p>© 2024 Método CAC. Todos os direitos reservados.</p>
+        <p>© 2025 TRACE. Todos os direitos reservados.</p>
       </footer>
     </main>
   );

@@ -36,9 +36,11 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-8"
         >
-          <span className="inline-block rounded-full px-4 py-1.5 text-xs md:text-sm font-bold uppercase tracking-widest border border-[#FFD000]/30 bg-[#FFD000]/10 text-[#FFD000] backdrop-blur-sm">
-            Explosão de vendas no delivery
-          </span>
+          <img
+            src="/Logo.png"
+            alt="Logo"
+            className="h-auto w-56 -mt-48 -mb-56"
+          />
         </motion.div>
 
         {/* Headline */}
@@ -46,7 +48,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="max-w-4xl mx-auto text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
+          className="max-w-4xl mx-auto text-4xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
         >
           Acelere o faturamento do seu delivery com o <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD000] via-[#FFD000] to-[#FF5A00]">Método CAC</span>
         </motion.h1>
