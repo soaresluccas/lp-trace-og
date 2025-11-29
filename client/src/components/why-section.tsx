@@ -39,7 +39,7 @@ export function WhySection() {
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const cardsRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLParagraphElement | null>(null);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(true);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -179,12 +179,12 @@ export function WhySection() {
             className="text-[18px] md:text-4xl font-extrabold mb-6 text-white font-display tracking-tight"
             initial={
               isSmallScreen && !prefersReducedMotion
-                ? { opacity: 0, y: 40 }
+                ? { y: 40 }
                 : undefined
             }
             whileInView={
               isSmallScreen && !prefersReducedMotion
-                ? { opacity: 1, y: 0 }
+                ? { y: 0 }
                 : undefined
             }
             viewport={
@@ -210,12 +210,12 @@ export function WhySection() {
             className="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed"
             initial={
               isSmallScreen && !prefersReducedMotion
-                ? { opacity: 0, y: 40 }
+                ? { y: 40 }
                 : undefined
             }
             whileInView={
               isSmallScreen && !prefersReducedMotion
-                ? { opacity: 1, y: 0 }
+                ? { y: 0 }
                 : undefined
             }
             viewport={
