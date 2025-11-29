@@ -156,7 +156,7 @@ export function WhySection() {
         <div className="text-center mb-16 md:mb-24">
           <h2
             ref={titleRef}
-            className="text-4xl md:text-5xl font-extrabold mb-6 text-white font-display tracking-tight"
+            className="text-[18px] md:text-4xl font-extrabold mb-6 text-white font-display tracking-tight"
           >
             {titleText.split("").map((char, index) => (
               <span key={index} data-char className="inline-block">
