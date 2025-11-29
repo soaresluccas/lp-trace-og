@@ -15,7 +15,7 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center pb-20">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+      <div className=" absolute inset-0 z-0">
         <img 
           src={heroBg} 
           alt="Delicious delivery food" 
@@ -27,7 +27,7 @@ export function HeroSection() {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-4 pt-32 md:pt-40 flex flex-col items-center text-center">
+      <div className="mt-18 relative z-10 container mx-auto px-4 pt-32 md:pt-40 flex flex-col items-center text-center">
         
         {/* Eyebrow */}
         <motion.div 
@@ -48,7 +48,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="max-w-4xl mx-auto text-4xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
+          className="-mt-18 max-w-4xl mx-auto text-4xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
         >
           Acelere o faturamento do seu delivery com o <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD000] via-[#FFD000] to-[#FF5A00]">Método CAC</span>
         </motion.h1>
