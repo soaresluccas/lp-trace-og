@@ -1,0 +1,323 @@
+You are a Design-AI specialized in creating high-converting landing pages.
+Your deliverables always include:
+React + Tailwind + Shadcn UI code
+Optional: images, stock photos, short videos
+Clear structure & consistent spacing
+Smooth animations (Framer Motion or GSAP when requested)
+🎯 Contexto do Projeto
+Você está criando uma landing page para empresas de delivery que querem aumentar o faturamento usando o Método CAC.
+O objetivo é gerar conversões através de uma análise gratuita.
+📐 Regras Gerais de Design (obrigatórias)
+Layout da Hero (SEGUIR À RISCA)
+Tudo 100% centralizado na vertical e horizontal.
+Estrutura em COLUNA ÚNICA:
+Headline
+Subheadline
+CTA
+CardForm
+O formulário NÃO fica ao lado do texto.
+O background da Hero é uma imagem de comida com overlay escuro suave.
+Estética: premium, moderna, forte contraste, glow leve em laranja.
+Estética Visual
+Paleta:
+Preto / #000
+Tons de marrom-escuro e laranja queimado (#FF5C00 style)
+Contraste alto, estilo “Luxury dark UI”
+Tipografia:
+Display pesada para headlines (similar a Inter Tight / Satoshi / Manrope)
+Body sempre leve e legível
+Espaçamentos amplos, bordas 2xl, vidrilhos suaves no cardForm
+Imagens sempre realistas, profissionais e contextualizadas a comida/delivery
+Comportamento e Animações
+O CardForm inicia levemente inclinado para trás
+Conforme o usuário rola a página, ele anima usando:
+Framer Motion ou
+GSAP ScrollTrigger
+Animação suave, realista e profissional (nada exagerado)
+📦 Estrutura da Seção 1 — Hero
+Gerar exatamente assim:
+Hero Section
+Background:
+Imagem de comida (gerada pelo modelo ou buscada em stock)
+Overlay degradê escuro
+Conteúdo (em coluna):
+Headline (H1):
+“Acelere o faturamento do seu delivery com o Método CAC”
+Subheadline:
+“Agende uma análise gratuita e descubra como a aplicação do nosso método pode levar o seu delivery para o próximo nível.”
+CTA Button:
+“Agendar Análise Gratuita →”
+CardForm (abaixo do CTA, centralizado e alinhado em coluna)
+Card com duas colunas internas (50% / 50%)
+Coluna 1 — Texto em lista:
+Vamos Crescer Juntos?
+Preencha o formulário e agende sua análise gratuita
+Passo 1 – Complete o Formulário
+Forneça suas informações de contato. Garantimos segurança total dos dados.
+Passo 2 – Nós entraremos em contato
+Coluna 2 — Formulário:
+Nome do Responsável
+WhatsApp
+@ da Empresa no Instagram
+Média de Faturamento Mensal → dropdown
+Menos de 30 mil/mês
+30–50 mil/mês
+50–75 mil/mês
+75–100 mil/mês
+100–200 mil/mês
+Acima de 200 mil/mês
+{
+"meta": {
+"title": "Landing - Método CAC (Design Spec)",
+"author": "Lucas (prompt for Replit Design Mode)",
+"version": "1.0",
+"date": "2025-11-28",
+"notes": "Spec JSON for a single-column, centered hero with card-form below. Targets React + Tailwind + Shadcn + Framer Motion/GSAP. Includes image/video generation prompts and implementation notes for Replit Design Mode agent."
+},
+"tokens": {
+"colors": {
+"bg": "#070505",
+"cardBg": "linear-gradient(180deg, rgba(73,29,13,0.82), rgba(22,7,3,0.72))",
+"accent": "#FF5A00",
+"accentDark": "#c74400",
+"mutedText": "#b7aca8",
+"primaryText": "#ffffff"
+},
+"fonts": {
+"headline": "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+"body": "Inter, system-ui, -apple-system, 'Segoe UI', Roboto"
+},
+"sizes": {
+"heroMaxWidth": "1100px",
+"contentPadding": "2.5rem"
+}
+},
+"layout": {
+"pageWidth": "100%",
+"container": {
+"maxWidth": "1400px",
+"horizontalPadding": "24px"
+}
+},
+"sections": [
+{
+"id": "hero",
+"type": "hero",
+"layout": "single-column-centered",
+"height": "auto",
+"background": {
+"type": "image-overlay",
+"image": {
+"generate": true,
+"prompt": "Close-up, appetizing Brazilian delivery food spread (pizza, coxinha, pastel), warm cinematic lighting, shallow depth of field, high-detail, 16:9 wide composition, dark moody edges, orange warm rim light; style: ultra‑realistic, editorial food photography",
+"alt": "Foto de alimentos para delivery com iluminação quente e foco gastronômico"
+},
+"overlay": {
+"type": "gradient",
+"value": "radial-gradient(closest-side at 90% 50%, rgba(255,90,0,0.18), rgba(0,0,0,0.86) 40%), linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.85))"
+}
+},
+"content": {
+"alignment": "center",
+"maxWidth": "840px",
+"elements": [
+{
+"type": "eyebrow",
+"text": "Explosão de vendas no delivery",
+"style": "caps-pill",
+"placement": "center",
+"tailwind": "inline-block rounded-full px-4 py-1 text-sm font-medium border border-[#2b1a13] bg-[rgba(0,0,0,0.2)] text-accent"
+},
+{
+"type": "headline",
+"tag": "h1",
+"text": "Acelere o faturamento do seu delivery com o Método CAC",
+"style": "display-bold",
+"typography": {
+"fontFamily": "tokens.fonts.headline",
+"fontSize": {
+"desktop": "64px",
+"tablet": "48px",
+"mobile": "36px"
+},
+"lineHeight": 1.02,
+"weight": 700
+}
+},
+{
+"type": "subheadline",
+"text": "Agende uma análise gratuita e descubra como a aplicação do nosso método pode levar o seu delivery para o próximo nível.",
+"typography": {
+"fontSize": {
+"desktop": "18px",
+"mobile": "16px"
+},
+"color": "tokens.colors.mutedText"
+},
+"maxWidth": "700px"
+},
+{
+"type": "cta",
+"text": "Agendar Análise Gratuita →",
+"role": "primary",
+"action": "open-modal-or-scroll-to-form",
+"styles": {
+"class": "inline-flex items-center justify-center rounded-full px-8 py-4 text-lg font-semibold shadow-lg",
+"background": "tokens.colors.accent",
+"hover": "tokens.colors.accentDark"
+}
+},
+{
+"type": "cardForm",
+"placement": "below-cta",
+"layout": "card-2col-stacked",
+"width": "min(820px, 92%)",
+"visual": {
+"background": "tokens.colors.cardBg",
+"borderRadius": "20px",
+"backdropBlur": "8px",
+"boxShadow": "0 12px 40px rgba(0,0,0,0.6)"
+},
+"animation": {
+"onPageLoad": {
+"type": "tilt-and-settle",
+"description": "Card starts slightly tilted backward (rotateX -6deg) and translated on Y (+24px). As user scrolls into hero, card animates to 0 rotation and Y0. Use Framer Motion or GSAP ScrollTrigger."
+},
+"scrollTrigger": {
+"start": "top 85%",
+"end": "top 40%",
+"scrub": true
+}
+},
+"content": {
+"columns": [
+{
+"width": "50%",
+"type": "textColumn",
+"elements": [
+{ "kind": "headline", "text": "Vamos crescer juntos?", "tag": "h2", "fontSize": "28px", "weight": 700 },
+{ "kind": "paragraph", "text": "Preencha o formulário e agende sua análise gratuita. Garantimos a segurança total de seus dados.", "fontSize": "15px", "color": "tokens.colors.mutedText" },
+{ "kind": "step", "title": "Passo 1", "text": "Complete o formulário" },
+{ "kind": "step", "title": "Passo 2", "text": "Receba uma ligação personalizada nas próximas horas" }
+]
+},
+{
+"width": "50%",
+"type": "formColumn",
+"form": {
+"id": "lead_capture_hero",
+"fields": [
+{ "name": "responsavel", "label": "Nome do responsável", "type": "text", "required": true, "placeholder": "Seu nome" },
+{ "name": "whatsapp", "label": "WhatsApp", "type": "tel", "required": true, "placeholder": "(00) 9 9999-9999" },
+{ "name": "instagram", "label": "@ da empresa no Instagram", "type": "text", "required": false, "placeholder": "@empresa" },
+{
+"name": "faturamento",
+"label": "Média de faturamento mensal",
+"type": "select",
+"required": true,
+"options": [
+"Menos de R
+ 30 - 50 mil/mês",
+"R
+ 75 - 100 mil/mês",
+"R
+ 200 mil/mês"
+]
+}
+],
+"submit": {
+"text": "Enviar",
+"style": "full-width rounded-full py-3 font-semibold bg-accent text-white",
+"action": "POST /api/leads -> show thank you -> schedule follow-up"
+},
+"accessibility": {
+"ariaLabels": true,
+"errorHandling": "inline, announce to screen reader",
+"keyboard": true
+}
+}
+}
+]
+}
+}
+]
+},
+"layoutRules": {
+"major": "IMPORTANT: hero MUST be single-column, fully centered. Sequence: eyebrow, h1, subheadline, CTA, CardForm (card contains two internal columns: left text, right form). On mobile, card stacks vertically and form fields fill width.",
+"mobile": "stack everything vertically. Card columns collapse (text -> form). Keep generous vertical spacing."
+}
+}
+],
+"components": {
+"react": {
+"recommended": {
+"framework": "React",
+"ui": "shadcn/ui (use Card, Input, Select, Button components)",
+"animation": "framer-motion for entrance and scroll; GSAP+ScrollTrigger as alternative",
+"styling": "TailwindCSS (JIT), use tokens above as CSS variables or tailwind config.",
+"forms": "react-hook-form + zod for validation",
+"images": "next/image or native <img> with srcset; lazy load"
+},
+"structure": {
+"HeroContainer": "centers content with max-w tokens.sizes.heroMaxWidth; vertical stack; uses CSS grid or flex column; background image with overlay using pseudo-element;",
+"CardForm": "separate component; handles local animation state; receives props for tilt animation config; uses shadcn Card and Form controls; submits to /api/leads"
+}
+}
+},
+"animations": {
+"cardTilt": {
+"initial": { "rotateX": -6, "y": 24, "opacity": 0.98 },
+"whileInView": { "rotateX": 0, "y": 0, "opacity": 1, "transition": { "type": "spring", "stiffness": 80, "damping": 18 } },
+"scrollBased": { "use": "ScrollTrigger", "start": "top 90%", "end": "top 50%", "scrub": true }
+},
+"ctaHover": { "scale": 1.02, "shadow": "0 8px 30px rgba(255,90,0,0.18)" }
+},
+"assets": {
+"images": [
+{ "role": "hero_food", "prompt": "Close-up, appetizing Brazilian delivery food spread (pizza, coxinha, pastel), warm cinematic lighting, shallow depth of field, high-detail, 16:9 wide composition, dark moody edges, orange warm rim light; editorial food photography", "usage": "hero background (generate)" }
+],
+"videos": [
+{ "role": "hero_loop", "prompt": "5-8s subtle looping video: slow rack-focus across warm plated delivery food, cinematic orange highlights, black vignette, 24fps, gentle camera move", "usage": "optional hero background video (muted loop)" }
+],
+"stockQueries": [
+"food delivery hero cinematic editorial",
+"brazilian delivery food closeup warm light",
+"dark background orange rim food photography"
+]
+},
+"accessibility": {
+"contrast": "ensure text on hero meets 4.5:1 for body and 3:1 for large headings if possible; provide solid overlay color fallback",
+"keyboard": "form navigable by keyboard, focus visible styles (ring-offset), focus traps inside modal if CTA opens modal",
+"aria": "inputs labeled, aria-invalid on errors, role=status for submission feedback"
+},
+"responsiveness": {
+"breakpoints": {
+"mobileMax": "639px",
+"tabletMax": "1023px",
+"desktopMin": "1024px"
+},
+"behavior": {
+"mobile": "hero text sizes reduced; card width 92%; card columns collapse; CTA full width; form inputs full width; spacing increased vertically",
+"tablet": "card shows two columns but stacked visually with equal widths, max-width constrained",
+"desktop": "as spec: centered column, card below CTA, card internal columns 50/50"
+}
+},
+"a_b_variants": [
+{
+"id": "A",
+"description": "Hero background: static generated image; CTA opens anchor scroll to card-form",
+"metrics": ["form-submission-rate", "time-to-form" ]
+},
+{
+"id": "B",
+"description": "Hero background: subtle video loop; CTA opens modal form (same fields)",
+"metrics": ["modal-open-rate", "form-submission-rate"]
+}
+],
+"deliverables": {
+"designJson": "this file",
+"reactStarter": "boolean: true (provide code scaffold on request)",
+"imagePrompts": "use assets.images[].prompt and assets.videos[].prompt",
+"implementationNotes": "Use tailwind config to add tokens; prefer motion.div from framer-motion for the Card and use IntersectionObserver or viewport framer props for tilt animation. For scroll-controlled animation, GSAP+ScrollTrigger is an acceptable alternative. Keep hero content in a single column; DO NOT place the form to the side of the hero headline."
+}
+}
