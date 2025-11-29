@@ -48,7 +48,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="max-w-4xl mx-auto text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
         >
-          Acelere o faturamento do seu delivery com o <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD000] to-[#FFE500]">Método CAC</span>
+          Acelere o faturamento do seu delivery com o <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD000] via-[#FFD000] to-[#FF5A00]">Método CAC</span>
         </motion.h1>
 
         {/* Subheadline */}
