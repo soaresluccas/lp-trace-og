@@ -1,0 +1,245 @@
+{
+  "component": "WhySection",
+  "description": "Seção 'Por que escolher a Trace Company?' com fundo escuro e luz central amarelada. Layout em três containers: título + parágrafo, grid de 4 cards (2x2) e CTA.",
+  "tokens": {
+    "colorBlack": "#000000",
+    "colorTransparent": "#0000",
+    "colorGrayDark": "#1f1f1f",
+    "colorGrayBorder": "#3a3a3a",
+    "colorTextGray": "#9aa3a8",
+    "colorYellowStart": "#f2c200",
+    "colorYellowEnd": "#b87a00",
+    "gradientYellowToBlack": "linear-gradient(135deg, #f2c200 0%, #b87a00 40%, #070707 100%)",
+    "titleGradient": "linear-gradient(90deg, #ffffff 0%, #bfbfbf 100%)",
+    "fontPrimary": "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+    "radiusCard": "10px"
+  },
+  "layout": {
+    "section": {
+      "padding": "6rem 2rem",
+      "background": [
+        {
+          "type": "base",
+          "value": "radial-gradient(ellipse at center, rgba(0,0,0,1) 20%, rgba(10,10,10,0.95) 60%, rgba(0,0,0,1) 100%)"
+        },
+        {
+          "type": "light-element",
+          "value": "radial-gradient(circle at center, rgba(242,194,0,0.35) 0%, rgba(186,122,0,0.12) 30%, transparent 60%)",
+          "shape": {
+            "width": "60%",
+            "height": "50%",
+            "borderRadius": "40%",
+            "position": "absolute",
+            "centered": true,
+            "zIndex": 0
+          }
+        }
+      ],
+      "position": "relative",
+      "overflow": "visible"
+    },
+    "grid": {
+      "maxWidth": "1200px",
+      "margin": "0 auto",
+      "columns": "1fr",
+      "gap": "1.5rem",
+      "responsive": {
+        ">=768px": { "columns": "1fr 1fr" },
+        ">=1024px": { "columns": "1fr 1fr 1fr" }
+      }
+    }
+  },
+  "containers": [
+    {
+      "id": "header",
+      "order": 1,
+      "style": {
+        "zIndex": 10,
+        "textAlign": "center",
+        "paddingBottom": "2rem",
+        "color": "#ffffff"
+      },
+      "content": {
+        "title": {
+          "text": "Por que escolher a Trace Company?",
+          "ariaLabel": "Título da seção por que escolher a Trace Company",
+          "style": {
+            "fontFamily": "var(--fontPrimary)",
+            "fontSize": "2.25rem",
+            "fontWeight": 800,
+            "lineHeight": 1.05,
+            "background": "var(--titleGradient)",
+            "WebkitBackgroundClip": "text",
+            "backgroundClip": "text",
+            "color": "transparent",
+            "textShadow": "0 1px 0 rgba(255,255,255,0.06), 0 8px 40px rgba(184,122,0,0.08)",
+            "metallicEffect": {
+              "description": "efeito metálico sutil via gradiente + text-shadow",
+              "implementationNote": "usar background-clip:text + multiple layered text-shadow para sensação metálica"
+            }
+          }
+        },
+        "paragraph": {
+          "text": "Somos uma agência de Marketing de Crescimento especializada no mercado de delivery. Criamos o Método CAC e é através dele que os nossos clientes batem recorde de faturamento todos os meses.",
+          "style": {
+            "maxWidth": "880px",
+            "margin": "0 auto",
+            "fontSize": "1.05rem",
+            "color": "var(--colorTextGray)",
+            "lineHeight": 1.75
+          }
+        }
+      }
+    },
+    {
+      "id": "cards",
+      "order": 2,
+      "style": {
+        "zIndex": 10,
+        "display": "grid",
+        "gridTemplateColumns": "repeat(2, 1fr)",
+        "gap": "1.25rem",
+        "alignItems": "stretch",
+        "paddingTop": "1.5rem",
+        "paddingBottom": "1.5rem"
+      },
+      "cards": [
+        {
+          "id": "card-1",
+          "title": "Independência dos Marketplaces",
+          "text": "Pare de depender dos marketplaces e construa uma base sólida de clientes próprios, sem perder margem.",
+          "icon": {
+            "source": "/mnt/data/Captura de tela 2025-11-29 115919.png",
+            "cropHint": "use canto superior esquerdo icone amarelo redondo 1:1",
+            "alt": "Ícone objetivo amarelo"
+          },
+          "style": {
+            "background": "linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(20,20,20,0.55) 100%)",
+            "border": "1px solid var(--colorGrayBorder)",
+            "borderRadius": "var(--radiusCard)",
+            "padding": "1.75rem",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+            "boxShadow": "0 4px 30px rgba(0,0,0,0.45)",
+            "overflow": "hidden",
+            "position": "relative"
+          },
+          "badge": {
+            "shape": "rounded-square",
+            "size": "56px",
+            "style": {
+              "background": "linear-gradient(180deg, var(--colorYellowStart) 0%, var(--colorYellowEnd) 100%)",
+              "display": "grid",
+              "placeItems": "center",
+              "borderRadius": "12px",
+              "boxShadow": "0 6px 18px rgba(184,122,0,0.12)"
+            }
+          },
+          "titleStyle": { "color": "#ffffff", "fontWeight": 800, "fontSize": "1.375rem" },
+          "textStyle": { "color": "var(--colorTextGray)", "marginTop": "0.75rem" },
+          "hover": {
+            "background": "var(--gradientYellowToBlack)",
+            "transition": "all 300ms ease",
+            "progressiveBar": {
+              "position": "absolute",
+              "height": "6px",
+              "left": 0,
+              "bottom": "-2px",
+              "background": "linear-gradient(90deg, rgba(242,194,0,1), rgba(184,122,0,1))",
+              "animation": "progressSwipe 1.4s ease forwards",
+              "animationPaused": true,
+              "onHover": { "animationPlayState": "running" }
+            }
+          }
+        },
+        {
+          "id": "card-2",
+          "title": "Retorno sobre Investimento",
+          "text": "Transforme seus investimentos em tráfego em vendas reais e mensuráveis para o seu delivery.",
+          "icon": { "source": "/mnt/data/Captura de tela 2025-11-29 115919.png", "cropHint": "use segundo ícone arredondado amarelo 1:1", "alt": "Ícone crescimento" },
+          "style": { "background": "var(--colorGrayDark)", "border": "1px solid var(--colorGrayBorder)", "borderRadius": "var(--radiusCard)", "padding": "1.75rem", "position": "relative" },
+          "badge": { "shape": "rounded-square", "size": "56px", "style": { "background": "linear-gradient(180deg, var(--colorYellowStart), var(--colorYellowEnd))", "borderRadius": "12px" } },
+          "titleStyle": { "color": "#ffffff", "fontWeight": 800, "fontSize": "1.375rem" },
+          "textStyle": { "color": "var(--colorTextGray)", "marginTop": "0.75rem" },
+          "hover": { "background": "var(--gradientYellowToBlack)", "progressiveBar": { "height": "6px", "animation": "progressSwipe 1.4s ease forwards" } }
+        },
+        {
+          "id": "card-3",
+          "title": "Previsibilidade de Faturamento",
+          "text": "Tenha controle total do seu faturamento, sem depender da sorte ou de picos ocasionais de vendas.",
+          "icon": { "source": "/mnt/data/Captura de tela 2025-11-29 115919.png", "cropHint": "use ícone de barras amarelas 1:1", "alt": "Ícone barras" },
+          "style": { "background": "var(--colorGrayDark)", "border": "1px solid var(--colorGrayBorder)", "borderRadius": "var(--radiusCard)", "padding": "1.75rem", "position": "relative" },
+          "badge": { "shape": "rounded-square", "size": "56px", "style": { "background": "linear-gradient(180deg, var(--colorYellowStart), var(--colorYellowEnd))", "borderRadius": "12px" } },
+          "titleStyle": { "color": "#ffffff", "fontWeight": 800, "fontSize": "1.375rem" },
+          "textStyle": { "color": "var(--colorTextGray)", "marginTop": "0.75rem" },
+          "hover": { "background": "var(--gradientYellowToBlack)", "progressiveBar": { "height": "6px", "animation": "progressSwipe 1.4s ease forwards" } }
+        },
+        {
+          "id": "card-4",
+          "title": "Crescimento Acelerado",
+          "text": "Método validado para acelerar o crescimento do seu delivery em tempo recorde.",
+          "icon": { "source": "/mnt/data/Captura de tela 2025-11-29 115919.png", "cropHint": "use ícone de raio amarelo 1:1", "alt": "Ícone relâmpago" },
+          "style": { "background": "var(--colorGrayDark)", "border": "1px solid var(--colorGrayBorder)", "borderRadius": "var(--radiusCard)", "padding": "1.75rem", "position": "relative" },
+          "badge": { "shape": "rounded-square", "size": "56px", "style": { "background": "linear-gradient(180deg, var(--colorYellowStart), var(--colorYellowEnd))", "borderRadius": "12px" } },
+          "titleStyle": { "color": "#ffffff", "fontWeight": 800, "fontSize": "1.375rem" },
+          "textStyle": { "color": "var(--colorTextGray)", "marginTop": "0.75rem" },
+          "hover": { "background": "var(--gradientYellowToBlack)", "progressiveBar": { "height": "6px", "animation": "progressSwipe 1.4s ease forwards" } }
+        }
+      ]
+    },
+    {
+      "id": "cta",
+      "order": 3,
+      "style": { "zIndex": 10, "textAlign": "center", "paddingTop": "1.25rem" },
+      "button": {
+        "text": "Quero vender mais",
+        "href": "#hero-form",
+        "role": "primary",
+        "style": {
+          "display": "inline-flex",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "padding": "0.95rem 1.6rem",
+          "fontWeight": 700,
+          "borderRadius": "14px",
+          "background": "var(--gradientYellowToBlack)",
+          "color": "#fff",
+          "boxShadow": "0 10px 30px rgba(184,122,0,0.18)",
+          "metallicEffect": "use subtle overlay: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0)) as pseudo-element"
+        },
+        "hover": { "transform": "translateY(-2px)", "transition": "all 180ms ease" }
+      }
+    }
+  ],
+  "animations": {
+    "keyframes": {
+      "progressSwipe": "@keyframes progressSwipe { 0% { width: 0%; } 100% { width: 100%; } }"
+    },
+    "cardHover": "transform: translateY(-6px); box-shadow: 0 18px 60px rgba(0,0,0,0.6);"
+  },
+  "accessibility": {
+    "contrastNotes": "Textos principais usam branco e tons de cinza claros para contraste sobre fundo muito escuro e áreas amareladas. Verificar contraste mínimo WCAG AA para body text.",
+    "aria": {
+      "sectionRole": "region",
+      "ariaLabel": "Por que escolher a Trace Company",
+      "cards": "list"
+    }
+  },
+  "implementationHints": {
+    "reactShadcn": {
+      "suggestedComponents": ["Card","Badge","Button"],
+      "tailwindClasses": {
+        "section": "relative py-24 px-6 bg-black overflow-visible",
+        "title": "text-4xl font-extrabold bg-clip-text text-transparent",
+        "p": "mx-auto text-lg text-gray-400 max-w-3xl",
+        "card": "p-6 rounded-lg border transition-all duration-300 ease-in-out",
+        "badge": "w-14 h-14 rounded-xl grid place-items-center shadow-md",
+        "btn": "px-6 py-3 rounded-2xl font-bold shadow-lg"
+      }
+    },
+    "imageUsage": "Use a imagem enviada para extrair os ícones amarelos. Se possível, recortar 1:1 os elementos de ícone (top-left, top-right, bottom-left, bottom-right) e exportar como SVG/PNG otimizados para web. Se não for possível, gere ícones vetoriais com a paleta amarela indicada.",
+    "responsiveNotes": "No mobile (<=640px) empilhar: header, cards (single column) e CTA centrado. Manter espaçamentos verticais maiores para respiração visual.",
+    "devNotes": "Progressive bar deve ser um elemento absoluto com width animado ao hover. Para performance, usar will-change: transform and opacity. Usar prefers-reduced-motion para desabilitar animações quando necessário."
+  }
+}
