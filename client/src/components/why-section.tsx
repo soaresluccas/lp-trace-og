@@ -42,12 +42,6 @@ export function WhySection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    if (typeof window !== "undefined") {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        return;
-      }
-    }
-
     const section = sectionRef.current;
     const title = titleRef.current;
     const cardsContainer = cardsRef.current;
@@ -55,13 +49,24 @@ export function WhySection() {
 
     if (!section || !title || !cardsContainer || !text) return;
 
-    const isSmallScreen =
+    const prefersReducedMotion =
       typeof window !== "undefined" &&
-      window.matchMedia("(max-width: 768px)").matches;
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const cards = cardsContainer.querySelectorAll(".feature-card");
 
     if (!cards.length) return;
+
+    if (prefersReducedMotion) {
+      gsap.set(title, { opacity: 1, y: 0 });
+      gsap.set(text, { opacity: 1, y: 0 });
+      gsap.set(cards, { opacity: 1, y: 0 });
+      return;
+    }
+
+    const isSmallScreen =
+      typeof window !== "undefined" &&
+      window.matchMedia("(max-width: 768px)").matches;
 
     const chars: NodeListOf<HTMLSpanElement> | null = isSmallScreen
       ? null
