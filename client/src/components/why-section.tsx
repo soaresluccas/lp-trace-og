@@ -42,6 +42,12 @@ export function WhySection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    if (typeof window !== "undefined") {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+      }
+    }
+
     const section = sectionRef.current;
     const title = titleRef.current;
     const cardsContainer = cardsRef.current;
@@ -49,32 +55,53 @@ export function WhySection() {
 
     if (!section || !title || !cardsContainer || !text) return;
 
-    const chars = title.querySelectorAll("span[data-char]");
+    const isSmallScreen =
+      typeof window !== "undefined" &&
+      window.matchMedia("(max-width: 768px)").matches;
+
     const cards = cardsContainer.querySelectorAll(".feature-card");
 
-    if (!chars.length || !cards.length) return;
+    if (!cards.length) return;
+
+    const chars: NodeListOf<HTMLSpanElement> | null = isSmallScreen
+      ? null
+      : title.querySelectorAll("span[data-char]");
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=1200",
-        scrub: true,
+        end: "+=900",
+        scrub: 0.3,
         pin: true,
         pinSpacing: true,
       },
     });
 
-    tl.fromTo(
-      chars,
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.04,
-        ease: "power2.out",
-      }
-    )
+    if (chars && chars.length) {
+      tl.fromTo(
+        chars,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.04,
+          ease: "power2.out",
+        }
+      );
+    } else {
+      tl.fromTo(
+        title,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power2.out",
+        }
+      );
+    }
+
+    tl
       .fromTo(
         text,
         { opacity: 0, y: 40 },
