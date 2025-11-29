@@ -53,7 +53,7 @@ export function WhySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/70 drop-shadow-[0_0_25px_rgba(255,208,0,0.1)] font-display tracking-tight"
+            className="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-[#999] drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)] font-display tracking-tight [text-shadow:0_0_30px_rgba(255,255,255,0.3)]"
           >
             Por que escolher a Trace Company?
           </motion.h2>
