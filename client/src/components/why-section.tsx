@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -38,22 +39,47 @@ export function WhySection() {
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const cardsRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLParagraphElement | null>(null);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const screenQuery = window.matchMedia("(max-width: 768px)");
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const handleScreenChange = () => {
+      setIsSmallScreen(screenQuery.matches);
+    };
+
+    const handleMotionChange = () => {
+      setPrefersReducedMotion(motionQuery.matches);
+    };
+
+    handleScreenChange();
+    handleMotionChange();
+
+    screenQuery.addEventListener("change", handleScreenChange);
+    motionQuery.addEventListener("change", handleMotionChange);
+
+    return () => {
+      screenQuery.removeEventListener("change", handleScreenChange);
+      motionQuery.removeEventListener("change", handleMotionChange);
+    };
+  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const section = sectionRef.current;
     const title = titleRef.current;
+
     const cardsContainer = cardsRef.current;
     const text = textRef.current;
 
     if (!section || !title || !cardsContainer || !text) return;
 
-    const prefersReducedMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || isSmallScreen) {
       return;
     }
 
@@ -61,13 +87,7 @@ export function WhySection() {
 
     if (!cards.length) return;
 
-    const isSmallScreen =
-      typeof window !== "undefined" &&
-      window.matchMedia("(max-width: 768px)").matches;
-
-    const chars: NodeListOf<HTMLSpanElement> | null = isSmallScreen
-      ? null
-      : title.querySelectorAll("span[data-char]");
+    const chars = title.querySelectorAll("span[data-char]");
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -130,7 +150,7 @@ export function WhySection() {
       tl.scrollTrigger?.kill();
       tl.kill();
     };
-  }, []);
+  }, [isSmallScreen, prefersReducedMotion]);
 
   const titleText = "Por que escolher a Trace Company?";
 
@@ -154,23 +174,63 @@ export function WhySection() {
       <div className="relative z-10 max-w-[1200px] mx-auto">
         {/* Header */}
         <div className="text-center mb-16 md:mb-24">
-          <h2
+          <motion.h2
             ref={titleRef}
             className="text-[18px] md:text-4xl font-extrabold mb-6 text-white font-display tracking-tight"
+            initial={
+              isSmallScreen && !prefersReducedMotion
+                ? { opacity: 0, y: 40 }
+                : undefined
+            }
+            whileInView={
+              isSmallScreen && !prefersReducedMotion
+                ? { opacity: 1, y: 0 }
+                : undefined
+            }
+            viewport={
+              isSmallScreen && !prefersReducedMotion
+                ? { once: true, amount: 0.4 }
+                : undefined
+            }
+            transition={
+              isSmallScreen && !prefersReducedMotion
+                ? { duration: 0.6, ease: "easeOut" }
+                : undefined
+            }
           >
             {titleText.split("").map((char, index) => (
               <span key={index} data-char className="inline-block">
                 {char === " " ? "\u00A0" : char}
               </span>
             ))}
-          </h2>
+          </motion.h2>
 
-          <p
+          <motion.p
             ref={textRef}
             className="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed"
+            initial={
+              isSmallScreen && !prefersReducedMotion
+                ? { opacity: 0, y: 40 }
+                : undefined
+            }
+            whileInView={
+              isSmallScreen && !prefersReducedMotion
+                ? { opacity: 1, y: 0 }
+                : undefined
+            }
+            viewport={
+              isSmallScreen && !prefersReducedMotion
+                ? { once: true, amount: 0.5 }
+                : undefined
+            }
+            transition={
+              isSmallScreen && !prefersReducedMotion
+                ? { duration: 0.6, delay: 0.2, ease: "easeOut" }
+                : undefined
+            }
           >
             Somos uma agência de Marketing de Crescimento especializada no mercado de delivery. Criamos o Método CAC e é através dele que os nossos clientes batem recorde de faturamento todos os meses.
-          </p>
+          </motion.p>
         </div>
 
         {/* Grid */}
