@@ -61,25 +61,26 @@
   --popover: 20 30% 10%;
   --popover-foreground: 0 0% 100%;
  
-  /* Primary - Orange #FF5A00 -> HSL 21 100% 50% */
-  --primary: 21 100% 50%;
-  --primary-foreground: 0 0% 100%;
+  /* Primary - Yellow #FFD000 -> HSL 49 100% 50% */
+  --primary: 49 100% 50%;
+  --primary-foreground: 0 0% 0%; /* Black text on yellow */
  
   --secondary: 12 6% 15%;
   --secondary-foreground: 0 0% 98%;
  
   --muted: 12 6% 20%;
-  --muted-foreground: 24 10% 70%; /* #b7aca8 approx */
+  --muted-foreground: 0 0% 80%; 
  
-  --accent: 21 100% 50%;
-  --accent-foreground: 0 0% 100%;
+  /* Accent - Yellow #FFD000 -> HSL 49 100% 50% */
+  --accent: 49 100% 50%;
+  --accent-foreground: 0 0% 0%;
  
   --destructive: 0 62% 30%;
   --destructive-foreground: 0 0% 98%;
 
   --border: 12 6% 20%;
   --input: 12 6% 20%;
-  --ring: 21 100% 50%;
+  --ring: 49 100% 50%;
  
   --radius: 0.75rem;
 }

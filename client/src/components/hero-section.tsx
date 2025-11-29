@@ -19,10 +19,10 @@ export function HeroSection() {
         <img 
           src={heroBg} 
           alt="Delicious delivery food" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover grayscale-[30%]"
         />
         {/* Complex gradient overlay for depth and readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-[#070505]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-[#070505]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0)_0%,_#070505_100%)]" />
       </div>
 
@@ -36,7 +36,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-8"
         >
-          <span className="inline-block rounded-full px-4 py-1.5 text-xs md:text-sm font-bold uppercase tracking-widest border border-[#FF5A00]/30 bg-[#FF5A00]/10 text-[#FF5A00] backdrop-blur-sm">
+          <span className="inline-block rounded-full px-4 py-1.5 text-xs md:text-sm font-bold uppercase tracking-widest border border-[#FFD000]/30 bg-[#FFD000]/10 text-[#FFD000] backdrop-blur-sm">
             Explosão de vendas no delivery
           </span>
         </motion.div>
@@ -48,7 +48,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="max-w-4xl mx-auto text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
         >
-          Acelere o faturamento do seu delivery com o <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5A00] to-[#ff8a4d]">Método CAC</span>
+          Acelere o faturamento do seu delivery com o <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD000] to-[#FFE500]">Método CAC</span>
         </motion.h1>
 
         {/* Subheadline */}
@@ -70,7 +70,7 @@ export function HeroSection() {
         >
           <Button 
             onClick={scrollToForm}
-            className="h-14 px-8 rounded-full text-lg font-semibold bg-[#FF5A00] hover:bg-[#d14900] text-white shadow-[0_0_30px_rgba(255,90,0,0.4)] hover:shadow-[0_0_50px_rgba(255,90,0,0.6)] hover:scale-105 transition-all duration-300"
+            className="h-14 px-8 rounded-full text-lg font-bold bg-[#FFD000] hover:bg-[#E6BC00] text-black shadow-[0_0_30px_rgba(255,208,0,0.4)] hover:shadow-[0_0_50px_rgba(255,208,0,0.6)] hover:scale-105 transition-all duration-300"
           >
             Agendar Análise Gratuita 
             <ArrowRight className="ml-2 h-5 w-5" />
