@@ -96,7 +96,7 @@ export function LeadForm() {
                 Vamos crescer juntos?
               </h2>
               <p className="text-muted-foreground mb-10 text-lg leading-relaxed">
-                Preencha o formulário e agende sua análise gratuita. Garantimos a segurança total de seus dados.
+                Preencha o formulário e agende sua análise gratuita. 
               </p>
 
               <div className="space-y-8">
@@ -104,14 +104,15 @@ export function LeadForm() {
                   <span className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-accent shadow-[0_0_10px_rgba(255,208,0,0.5)]" />
                   <h3 className="text-accent font-bold text-sm uppercase tracking-wider mb-1">Passo 1</h3>
                   <p className="text-white font-medium text-lg">Complete o formulário</p>
-                  <p className="text-muted-foreground text-sm mt-1">Forneça suas informações de contato.</p>
+                  <p className="text-muted-foreground text-sm mt-1">Forneça suas informações de contato. </p>
+                  <p className="text-muted-foreground text-sm mt-1">Garantimos a segurança total dos seus dados.</p>
                 </div>
                 
                 <div className="relative pl-6 border-l-2 border-white/20">
                   <span className="absolute -left-[5px] top-0 h-2 w-2 rounded-full bg-muted-foreground" />
                   <h3 className="text-muted-foreground font-bold text-sm uppercase tracking-wider mb-1">Passo 2</h3>
-                  <p className="text-white font-medium text-lg">Receba uma ligação personalizada</p>
-                  <p className="text-muted-foreground text-sm mt-1">Nossos especialistas entrarão em contato.</p>
+                  <p className="text-white font-medium text-lg">Nós entraremos em Contato </p>
+                  <p className="text-muted-foreground text-sm mt-1">Nas próximas horas entraremos em contato para agendar a sua reunião.</p>
                 </div>
               </div>
             </div>

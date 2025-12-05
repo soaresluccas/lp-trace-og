@@ -1,11 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Target, TrendingUp, BarChart3, Zap, ArrowRight } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const features = [
   {
@@ -35,124 +32,25 @@ const features = [
 ];
 
 export function WhySection() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const titleRef = useRef<HTMLHeadingElement | null>(null);
-  const cardsRef = useRef<HTMLDivElement | null>(null);
-  const textRef = useRef<HTMLParagraphElement | null>(null);
-  const [isSmallScreen, setIsSmallScreen] = useState(true);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const screenQuery = window.matchMedia("(max-width: 768px)");
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    const handleScreenChange = () => {
-      setIsSmallScreen(screenQuery.matches);
-    };
 
     const handleMotionChange = () => {
       setPrefersReducedMotion(motionQuery.matches);
     };
 
-    handleScreenChange();
     handleMotionChange();
 
-    screenQuery.addEventListener("change", handleScreenChange);
     motionQuery.addEventListener("change", handleMotionChange);
 
     return () => {
-      screenQuery.removeEventListener("change", handleScreenChange);
       motionQuery.removeEventListener("change", handleMotionChange);
     };
   }, []);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const section = sectionRef.current;
-    const title = titleRef.current;
-
-    const cardsContainer = cardsRef.current;
-    const text = textRef.current;
-
-    if (!section || !title || !cardsContainer || !text) return;
-
-    if (prefersReducedMotion || isSmallScreen) {
-      return;
-    }
-
-    const cards = cardsContainer.querySelectorAll(".feature-card");
-
-    if (!cards.length) return;
-
-    const chars = title.querySelectorAll("span[data-char]");
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: "+=900",
-        scrub: 0.3,
-        pin: true,
-        pinSpacing: true,
-      },
-    });
-
-    if (chars && chars.length) {
-      tl.fromTo(
-        chars,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.04,
-          ease: "power2.out",
-        }
-      );
-    } else {
-      tl.fromTo(
-        title,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power2.out",
-        }
-      );
-    }
-
-    tl
-      .fromTo(
-        text,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power2.out",
-        },
-        ">+0.2"
-      )
-      .fromTo(
-        cards,
-        { opacity: 0, y: 60 },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.15,
-          ease: "power2.out",
-        },
-        ">+0.3"
-      );
-
-    return () => {
-      tl.scrollTrigger?.kill();
-      tl.kill();
-    };
-  }, [isSmallScreen, prefersReducedMotion]);
-
-  const titleText = "Por que escolher a Trace Company?";
 
   const scrollToForm = () => {
     const formElement = document.getElementById("lead-form-container");
@@ -163,7 +61,6 @@ export function WhySection() {
 
   return (
     <section
-      ref={sectionRef}
       className="relative py-40 md:py-48 px-6 overflow-hidden bg-[#070505] min-h-[140vh] md:min-h-[160vh]"
     >
       {/* Background Effects */}
@@ -175,59 +72,27 @@ export function WhySection() {
         {/* Header */}
         <div className="text-center mb-16 md:mb-24">
           <motion.h2
-            ref={titleRef}
-            className="text-[18px] md:text-4xl font-extrabold mb-6 text-white font-display tracking-tight"
-            initial={
-              isSmallScreen && !prefersReducedMotion
-                ? { y: 40 }
-                : undefined
-            }
-            whileInView={
-              isSmallScreen && !prefersReducedMotion
-                ? { y: 0 }
-                : undefined
-            }
-            viewport={
-              isSmallScreen && !prefersReducedMotion
-                ? { once: true, amount: 0.4 }
-                : undefined
-            }
-            transition={
-              isSmallScreen && !prefersReducedMotion
-                ? { duration: 0.6, ease: "easeOut" }
-                : undefined
-            }
+            className="text-3xl md:text-5xl font-extrabold mb-6 font-display tracking-tight"
+            initial={!prefersReducedMotion ? { opacity: 0, y: 20 } : undefined}
+            whileInView={!prefersReducedMotion ? { opacity: 1, y: 0 } : undefined}
+            viewport={!prefersReducedMotion ? { once: true } : undefined}
+            transition={!prefersReducedMotion ? { duration: 0.6 } : undefined}
           >
-            {titleText.split("").map((char, index) => (
-              <span key={index} data-char className="inline-block">
-                {char === " " ? "\u00A0" : char}
-              </span>
-            ))}
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-gray-200 to-gray-600 drop-shadow-sm">
+              Por que escolher a
+            </span>
+            <br className="hidden md:block" />{" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFD000] to-[#FF5A00]">
+              Trace Company?
+            </span>
           </motion.h2>
 
           <motion.p
-            ref={textRef}
             className="max-w-3xl mx-auto text-[13px] text-gray-400 leading-relaxed"
-            initial={
-              isSmallScreen && !prefersReducedMotion
-                ? { y: 40 }
-                : undefined
-            }
-            whileInView={
-              isSmallScreen && !prefersReducedMotion
-                ? { y: 0 }
-                : undefined
-            }
-            viewport={
-              isSmallScreen && !prefersReducedMotion
-                ? { once: true, amount: 0.5 }
-                : undefined
-            }
-            transition={
-              isSmallScreen && !prefersReducedMotion
-                ? { duration: 0.6, delay: 0.2, ease: "easeOut" }
-                : undefined
-            }
+            initial={!prefersReducedMotion ? { y: 40 } : undefined}
+            whileInView={!prefersReducedMotion ? { y: 0 } : undefined}
+            viewport={!prefersReducedMotion ? { once: true, amount: 0.5 } : undefined}
+            transition={!prefersReducedMotion ? { duration: 0.6, delay: 0.2, ease: "easeOut" } : undefined}
           >
             Somos uma agência de Marketing de Crescimento especializada no mercado de delivery. Criamos o Método CAC e é através dele que os nossos clientes batem recorde de faturamento todos os meses.
           </motion.p>
@@ -235,7 +100,6 @@ export function WhySection() {
 
         {/* Grid */}
         <div
-          ref={cardsRef}
           className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
         >
           {features.map((feature, index) => (
