@@ -45,7 +45,7 @@ export function MethodSection() {
   return (
     <section
       ref={containerRef}
-      className="relative py-32 px-6 overflow-hidden bg-[#070505]"
+      className="relative py-16 md:py-32 px-6 overflow-hidden bg-[#070505]"
     >
       {/* Background Ambience */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -54,7 +54,7 @@ export function MethodSection() {
 
       <div className="relative z-10 max-w-[1200px] mx-auto">
         {/* Section Title */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-12 md:mb-24">
           <motion.h2
             className="text-4xl md:text-6xl font-extrabold mb-6 font-display tracking-tight"
             initial={{ opacity: 0, y: 30 }}

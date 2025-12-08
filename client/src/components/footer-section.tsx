@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Mail } from "lucide-react";
 
 export function FooterSection() {
   const scrollToTop = () => {
@@ -7,7 +7,7 @@ export function FooterSection() {
   };
 
   return (
-    <footer className="relative py-20 px-4 md:px-6 bg-[#070505] overflow-hidden">
+    <footer className="-mt-12 md:-mt-24 relative py-10 md:py-20 px-4 md:px-6 bg-[#070505] overflow-hidden">
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
@@ -32,19 +32,19 @@ export function FooterSection() {
           <img 
             src="/Logo.png" 
             alt="TRACE Logo" 
-            className="w-full h-full object-contain drop-shadow-[0_0_25px_rgba(234,179,8,0.3)]"
+            className="w-full h-full mt-24 object-contain drop-shadow-[0_0_25px_rgba(234,179,8,0.3)]"
           />
         </motion.div>
 
       
         {/* Copyright */}
-        <div className="w-full border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/40">
-          <p>© 2025 TRACE. Todos os direitos reservados.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-yellow-500 transition-colors">Termos</a>
-            <a href="#" className="hover:text-yellow-500 transition-colors">Privacidade</a>
-            <a href="#" className="hover:text-yellow-500 transition-colors">Contato</a>
-          </div>
+        <div className="w-full pt-8 flex flex-col md:flex-col items-center justify-center gap-4 text-sm text-white/40">
+          <p className="text-center md:text-left">51.067.160/0001-99</p>
+          <a href="mailto:ricardo@tracecompany.com.br" className="text-center md:text-right">
+            <Mail className="w-6 h-6 inline-block mr-2" />
+            ricardo@tracecompany.com.br
+          </a>
+         
         </div>
       </div>
 

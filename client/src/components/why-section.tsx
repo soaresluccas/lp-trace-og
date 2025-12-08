@@ -61,7 +61,7 @@ export function WhySection() {
 
   return (
     <section
-      className="relative py-40 md:py-48 px-6 overflow-hidden bg-[#070505] min-h-[140vh] md:min-h-[160vh]"
+      className="relative py-20 md:py-48 px-6 overflow-hidden bg-[#070505] min-h-[100vh] md:min-h-[160vh]"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -70,7 +70,7 @@ export function WhySection() {
 
       <div className="relative z-10 max-w-[1200px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 md:mb-24">
+        <div className="text-center mb-8 md:mb-24">
           <motion.h2
             className="text-3xl md:text-5xl font-extrabold mb-6 font-display tracking-tight"
             initial={!prefersReducedMotion ? { opacity: 0, y: 20 } : undefined}
@@ -100,7 +100,7 @@ export function WhySection() {
 
         {/* Grid */}
         <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"
         >
           {features.map((feature, index) => (
             <div key={feature.id} className="feature-card">

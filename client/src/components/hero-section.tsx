@@ -13,7 +13,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center pb-20">
+    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center pb-10 md:pb-20">
       {/* Background Image with Overlay */}
       <div className=" absolute inset-0 z-0">
         <img 
@@ -27,7 +27,7 @@ export function HeroSection() {
       </div>
 
       {/* Content Container */}
-      <div className="mt-18 relative z-10 container mx-auto px-4 pt-32 md:pt-40 flex flex-col items-center text-center">
+      <div className="mt-18 relative z-10 container mx-auto px-4 pt-24 md:pt-40 flex flex-col items-center text-center">
         
         {/* Eyebrow */}
         <motion.div 

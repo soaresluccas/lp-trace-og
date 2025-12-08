@@ -57,7 +57,7 @@ const CustomBarLabel = (props: any) => {
 
 export function CasesSection() {
   return (
-    <section className="relative py-24 px-6 overflow-hidden bg-[#070505]">
+    <section className="relative py-12 md:py-24 px-6 overflow-hidden bg-[#070505]">
       {/* Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-1/4 right-0 w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,208,0,0.03)_0%,transparent_70%)] blur-3xl" />
@@ -65,7 +65,7 @@ export function CasesSection() {
 
       <div className="relative z-10 max-w-[1200px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <motion.h2
             className="text-3xl md:text-5xl font-extrabold mb-6 font-display tracking-tight"
             initial={{ opacity: 0, y: 20 }}
@@ -121,7 +121,13 @@ export function CasesSection() {
                         tickLine={false}
                         axisLine={false}
                       />
-                      <YAxis hide />
+                      <YAxis 
+                        stroke="#666" 
+                        tick={{ fill: '#666', fontSize: 12 }}
+                        tickFormatter={(value) => `R$ ${(value / 1000).toFixed(0)}k`}
+                        tickLine={false}
+                        axisLine={false}
+                      />
                       <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.02)' }} />
                       <Bar 
                         dataKey="value" 
@@ -170,7 +176,13 @@ export function CasesSection() {
                         axisLine={false}
                         interval={0}
                       />
-                      <YAxis hide />
+                      <YAxis 
+                        stroke="#666" 
+                        tick={{ fill: '#666', fontSize: 12 }}
+                        tickFormatter={(value) => `R$ ${(value / 1000).toFixed(0)}k`}
+                        tickLine={false}
+                        axisLine={false}
+                      />
                       <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.02)' }} />
                       <Bar 
                         dataKey="value" 
