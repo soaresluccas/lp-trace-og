@@ -112,7 +112,7 @@ export function CasesSection() {
           >
             <Card className="bg-[#0f0f0f]/80 border-white/5 backdrop-blur-sm h-full hover:border-white/10 transition-colors">
               <CardHeader>
-                <CardTitle className="text-xl text-white mb-2">Case 01</CardTitle>
+                <CardTitle className="text-xl text-white mb-2">De R$50.000,00 para R$155.000,00</CardTitle>
                 <CardDescription className="text-gray-400">
                   Crescimento consistente para operações em expansão
                 </CardDescription>
@@ -160,7 +160,7 @@ export function CasesSection() {
           >
             <Card className="bg-[#0f0f0f]/80 border-white/5 backdrop-blur-sm h-full hover:border-white/10 transition-colors">
               <CardHeader>
-                <CardTitle className="text-xl text-white mb-2">Case 02</CardTitle>
+                <CardTitle className="text-xl text-white mb-2">De R$570.000,00 para R$811.000,00</CardTitle>
                 <CardDescription className="text-gray-400">
                   Escala agressiva para grandes operações
                 </CardDescription>
