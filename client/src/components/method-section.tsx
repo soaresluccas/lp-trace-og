@@ -63,11 +63,9 @@ export function MethodSection() {
             transition={{ duration: 0.8 }}
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-gray-200 to-gray-600 drop-shadow-sm">
-              Método CAC
+              Método CAC na prática
             </span>{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFD000] to-[#FF5A00]">
-              na prática
-            </span>
+            
           </motion.h2>
         </div>
 

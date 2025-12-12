@@ -61,7 +61,7 @@ export function WhySection() {
 
   return (
     <section
-      className="relative py-20 md:py-48 px-6 overflow-hidden bg-[#070505] min-h-[100vh] md:min-h-[160vh]"
+      className="relative min-h-screen w-full overflow-hidden flex flex-col items-center pb-10 md:pb-20"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -81,14 +81,24 @@ export function WhySection() {
             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-gray-200 to-gray-600 drop-shadow-sm">
               Por que escolher a
             </span>
-            <br className="hidden md:block" />{" "}
+         
+          </motion.h2>
+
+          <motion.h2
+            className="-mt-4 text-3xl md:text-5xl font-extrabold mb-6 font-display tracking-tight"
+            initial={!prefersReducedMotion ? { opacity: 0, y: 20 } : undefined}
+            whileInView={!prefersReducedMotion ? { opacity: 1, y: 0 } : undefined}
+            viewport={!prefersReducedMotion ? { once: true } : undefined}
+            transition={!prefersReducedMotion ? { duration: 0.6 } : undefined}
+          >
+           
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFD000] to-[#FF5A00]">
               Trace Company?
             </span>
           </motion.h2>
 
           <motion.p
-            className="max-w-3xl mx-auto text-[13px] text-gray-400 leading-relaxed"
+            className="max-w-3xl px-4 mx-auto text-[18px] text-gray-400 leading-relaxed"
             initial={!prefersReducedMotion ? { y: 40 } : undefined}
             whileInView={!prefersReducedMotion ? { y: 0 } : undefined}
             viewport={!prefersReducedMotion ? { once: true, amount: 0.5 } : undefined}

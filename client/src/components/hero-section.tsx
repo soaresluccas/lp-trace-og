@@ -13,9 +13,9 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center pb-10 md:pb-20">
+    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center pb-10 md:pb-20 bg-[#070505]">
       {/* Background Image with Overlay */}
-      <div className=" absolute inset-0 z-0">
+      <div className="relative w-full h-[50vh] md:absolute md:inset-0 md:h-full z-0">
         <img 
           src="/831475.jpg" 
           alt="Delicious delivery food" 
@@ -27,7 +27,7 @@ export function HeroSection() {
       </div>
 
       {/* Content Container */}
-      <div className="mt-18 relative z-10 container mx-auto px-4 pt-24 md:pt-40 flex flex-col items-center text-center">
+      <div className="-mt-24 relative z-10 container mx-auto px-4 pt-10 md:pt-40 md:mt-18 flex flex-col items-center text-center">
         
         {/* Eyebrow */}
         <motion.div 

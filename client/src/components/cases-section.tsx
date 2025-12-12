@@ -3,18 +3,26 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianGrid } from "recharts";
 
 const case1Data = [
-  { month: "02/2025", value: 75241.90 },
-  { month: "04/2025", value: 156518.95 },
-  { month: "06/2025", value: 155249.11 },
+  { month: "02/25", value: 50344.19 },
+  { month: "03/25", value: 75241.90 },
+  { month: "04/25", value: 114501.71 },
+  { month: "05/25", value: 156518.95 },
+  { month: "06/25", value: 155241.66 },
+  { month: "07/25", value: 155249.11 },
 ];
 
 const case2Data = [
-  { month: "09/2024", value: 611767.94 },
-  { month: "11/2024", value: 687463.70 },
-  { month: "01/2025", value: 592481.30 },
-  { month: "03/2025", value: 732571.38 },
-  { month: "05/2025", value: 811279.59 },
-  { month: "07/2025", value: 832786.84 },
+  { month: "09/24", value: 570369.35 },
+  { month: "10/24", value: 611767.94 },
+  { month: "11/24", value: 637240.25 },
+  { month: "12/24", value: 687463.70 },
+  { month: "01/25", value: 645384.17 },
+  { month: "02/25", value: 592481.30 },
+  { month: "03/25", value: 774052.92 },
+  { month: "04/25", value: 732571.38 },
+  { month: "05/25", value: 793652.88 },
+  { month: "06/25", value: 811279.59 },
+
 ];
 
 const formatCurrency = (value: number) => {
@@ -50,7 +58,7 @@ const CustomBarLabel = (props: any) => {
       fontSize={10}
       fontWeight={500}
     >
-      {formatCurrency(value)}
+      {`${(value / 1000).toFixed(0)}k`}
     </text>
   );
 };
@@ -89,7 +97,7 @@ export function CasesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Somos especialistas no mercado de delivery, por isso, sabemos o caminho para você aumentar suas vendas. Testamos e validamos o Método CAC em diversas empresas do nicho e por isso sabemos exatamente quais estratégias realmente geram aumento de faturamento para o seu delivery.
+           Somos especialistas em delivery e trabalhamos com um método validado. Testamos o Método CAC em diversas empresas do nicho e por isso sabemos quais estratégias realmente geram aumento de faturamento para o seu delivery.
           </motion.p>
         </div>
 
@@ -99,7 +107,7 @@ export function CasesSection() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true }} 
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <Card className="bg-[#0f0f0f]/80 border-white/5 backdrop-blur-sm h-full hover:border-white/10 transition-colors">
@@ -121,13 +129,7 @@ export function CasesSection() {
                         tickLine={false}
                         axisLine={false}
                       />
-                      <YAxis 
-                        stroke="#666" 
-                        tick={{ fill: '#666', fontSize: 12 }}
-                        tickFormatter={(value) => `R$ ${(value / 1000).toFixed(0)}k`}
-                        tickLine={false}
-                        axisLine={false}
-                      />
+                
                       <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.02)' }} />
                       <Bar 
                         dataKey="value" 
@@ -176,13 +178,7 @@ export function CasesSection() {
                         axisLine={false}
                         interval={0}
                       />
-                      <YAxis 
-                        stroke="#666" 
-                        tick={{ fill: '#666', fontSize: 12 }}
-                        tickFormatter={(value) => `R$ ${(value / 1000).toFixed(0)}k`}
-                        tickLine={false}
-                        axisLine={false}
-                      />
+         
                       <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.02)' }} />
                       <Bar 
                         dataKey="value" 
