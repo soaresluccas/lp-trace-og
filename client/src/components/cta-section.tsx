@@ -5,6 +5,14 @@ import { useState, useEffect } from "react";
 export function CTASection() {
   const [isHovered, setIsHovered] = useState(false);
 
+
+  const scrollToForm = () => {
+    const formElement = document.getElementById("lead-form-container");
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="py-10 md:py-20 px-4 md:px-6 bg-[#070505]">
       <div className="max-w-[1000px] mx-auto w-full">
@@ -48,7 +56,7 @@ export function CTASection() {
                 ease: "easeInOut",
               }}
             />
-            
+
             {/* Grid Pattern Overlay */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
           </div>
@@ -64,14 +72,14 @@ export function CTASection() {
               className="w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-orange-500 to-yellow-500 p-[1px] mb-6 md:mb-8 shadow-[0_0_30px_rgba(255,165,0,0.3)] relative overflow-hidden"
             >
               <div className="w-full h-full rounded-[15px] bg-[#0f0f0f] flex items-center justify-center relative z-10 p-2">
-                <img 
-                  src="/Logo.png" 
-                  alt="TRACE Logo" 
-                  className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(255,165,0,0.5)]" 
+                <img
+                  src="/Logo.png"
+                  alt="TRACE Logo"
+                  className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(255,165,0,0.5)]"
                 />
               </div>
               {/* Icon Glow Animation */}
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-yellow-500/20 blur-xl"
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 2, repeat: Infinity }}
@@ -102,7 +110,7 @@ export function CTASection() {
             >
               {/* Button Background Gradient Animation */}
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+
               {/* Shine Effect */}
               <motion.div
                 className="absolute inset-0 -translate-x-full"
@@ -119,11 +127,12 @@ export function CTASection() {
                   transform: "skewX(-20deg)",
                 }}
               />
-
-              <span className="relative z-10 flex items-center justify-center gap-3 group-hover:text-white transition-colors duration-300">
-                Quero Vender Mais
-                <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${isHovered ? "translate-x-1" : ""}`} />
-              </span>
+              <button onClick={scrollToForm}>
+                <span className="relative cursor-pointer z-10 flex items-center justify-center gap-3 group-hover:text-white transition-colors duration-300">
+                  Quero Vender Mais
+                  <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${isHovered ? "translate-x-1" : ""}`} />
+                </span>
+              </button>
             </motion.button>
           </div>
         </motion.div>
