@@ -114,7 +114,7 @@ export function CasesSection() {
               <CardHeader>
                 <CardTitle className="text-xl text-white mb-2">De R$50 mil para R$155 mil</CardTitle>
                 <CardDescription className="text-gray-400">
-                  Crescimento consistente para operações em expansão
+                  Crescimento consistente para pequenas operações.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -162,7 +162,7 @@ export function CasesSection() {
               <CardHeader>
                 <CardTitle className="text-xl text-white mb-2">De R$570 mil para R$811 mil</CardTitle>
                 <CardDescription className="text-gray-400">
-                  Escala agressiva para grandes operações
+                  Escala agressiva para grandes operações.
                 </CardDescription>
               </CardHeader>
               <CardContent>
