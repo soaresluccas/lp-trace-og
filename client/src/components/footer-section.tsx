@@ -32,7 +32,7 @@ export function FooterSection() {
           <img 
             src="/Logo.png" 
             alt="TRACE Logo" 
-            className="w-full mt-12 h-full object-contain drop-shadow-[0_0_25px_rgba(234,179,8,0.3)]"
+            className="w-full mt-4 h-full object-contain drop-shadow-[0_0_25px_rgba(234,179,8,0.3)]"
           />
         </motion.div>
       
