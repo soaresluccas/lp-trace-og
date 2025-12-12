@@ -62,7 +62,7 @@ export function CTASection() {
           </div>
 
           {/* Content Container */}
-          <div className="relative z-10 px-6 py-12 md:p-24 flex flex-col items-center text-center">
+          <div className="relative z-20 px-6 py-12 md:p-24 flex flex-col items-center text-center">
             {/* Icon/Badge */}
             <motion.div
               initial={{ scale: 0 }}
