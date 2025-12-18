@@ -2,5 +2,8 @@
     "name": "soaresluccas/lp-trace-og",
     "description": "Projeto LP Trace - configuração mínima para deploy na Hostinger",
     "type": "project",
-    "require": {}
+    "require": {},
+    "scripts": {
+        "post-install-cmd": "bash deploy.sh"
+    }
 }
