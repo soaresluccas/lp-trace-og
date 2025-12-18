@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # ------------------------------------------------------------
 # Deploy script executed by Composer (post-install-cmd)

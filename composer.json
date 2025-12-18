@@ -4,6 +4,6 @@
     "type": "project",
     "require": {},
     "scripts": {
-        "post-install-cmd": "bash deploy.sh"
+        "post-install-cmd": "sh deploy.sh"
     }
 }
