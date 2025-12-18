@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Se a requisição não for para um arquivo ou diretório existente na raiz,
+# redireciona para a pasta dist
+RewriteCond %{REQUEST_URI} !^/dist/
+RewriteRule ^(.*)$ /dist/$1 [L]
+
+# Para SPAs (Single Page Applications): se o arquivo não existir em dist,
+# serve o index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /dist/index.html [L]
