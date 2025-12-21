@@ -16,9 +16,9 @@ export function HeroSection() {
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center pb-10 md:pb-20 bg-[#070505]">
       {/* Background Image with Overlay */}
       <div className="relative w-full h-[50vh] md:absolute md:inset-0 md:h-full z-0">
-        <img 
-          src="/831475.jpg" 
-          alt="Delicious delivery food" 
+        <img
+          src="/831475.jpg"
+          alt="Delicious delivery food"
           className="w-full h-full object-cover grayscale-[30%]"
         />
         {/* Complex gradient overlay for depth and readability */}
@@ -28,9 +28,9 @@ export function HeroSection() {
 
       {/* Content Container */}
       <div className="-mt-24 relative z-10 container mx-auto px-4 pt-10 md:pt-40 md:mt-18 flex flex-col items-center text-center">
-        
+
         {/* Eyebrow */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -44,17 +44,17 @@ export function HeroSection() {
         </motion.div>
 
         {/* Headline */}
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="-mt-18 max-w-4xl mx-auto text-4xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
         >
-          Acelere o faturamento do seu delivery com o <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD000] via-[#FFD000] to-[#FF5A00]">Método CAC</span>
+          Acelere o faturamento do seu delivery com o <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD000] via-[#FFD000] to-[#FF5A00]">Método </span>
         </motion.h1>
 
         {/* Subheadline */}
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
@@ -64,17 +64,17 @@ export function HeroSection() {
         </motion.p>
 
         {/* CTA Button */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mb-20"
         >
-          <Button 
+          <Button
             onClick={scrollToForm}
             className="h-14 px-8 rounded-full text-lg font-bold bg-[#FFD000] hover:bg-[#E6BC00] text-black shadow-[0_0_30px_rgba(255,208,0,0.4)] hover:shadow-[0_0_50px_rgba(255,208,0,0.6)] hover:scale-105 transition-all duration-300"
           >
-            Agendar Análise Gratuita 
+            Agendar Análise Gratuita
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </motion.div>
@@ -85,7 +85,7 @@ export function HeroSection() {
         </div>
 
       </div>
-      
+
       {/* Bottom Fade to seamless blend if content continues */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#070505] to-transparent z-0 pointer-events-none" />
     </section>
