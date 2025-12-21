@@ -32,7 +32,9 @@ const formSchema = z.object({
 
 export function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
-  
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -43,13 +45,33 @@ export function LeadForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    setSubmitted(true);
-    // Simulate API call
-    setTimeout(() => {
-      // Handle success
-    }, 1000);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/webhook/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: values.name,
+          whatsapp: values.whatsapp,
+          instagram: values.instagram,
+          revenue: values.revenue,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro ao enviar formulário");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError("Ocorreu um erro. Por favor, tente novamente.");
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   if (submitted) {
@@ -78,7 +100,7 @@ export function LeadForm() {
       initial={{ rotateX: -10, y: 40, opacity: 0 }}
       whileInView={{ rotateX: 0, y: 0, opacity: 1 }}
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ 
+      transition={{
         type: "spring",
         stiffness: 60,
         damping: 20,
@@ -96,7 +118,7 @@ export function LeadForm() {
                 Vamos crescer juntos?
               </h2>
               <p className="text-muted-foreground mb-10 text-lg leading-relaxed">
-                Preencha o formulário e agende sua análise gratuita. 
+                Preencha o formulário e agende sua análise gratuita.
               </p>
 
               <div className="space-y-8">
@@ -107,7 +129,7 @@ export function LeadForm() {
                   <p className="text-muted-foreground text-sm mt-1">Forneça suas informações de contato. </p>
                   <p className="text-muted-foreground text-sm mt-1">Garantimos a segurança total dos seus dados.</p>
                 </div>
-                
+
                 <div className="relative pl-6 border-l-2 border-white/20">
                   <span className="absolute -left-[5px] top-0 h-2 w-2 rounded-full bg-muted-foreground" />
                   <h3 className="text-muted-foreground font-bold text-sm uppercase tracking-wider mb-1">Passo 2</h3>
@@ -128,9 +150,9 @@ export function LeadForm() {
                       <FormItem>
                         <FormLabel className="text-white/80">Nome do responsável</FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="Seu nome" 
-                            {...field} 
+                          <Input
+                            placeholder="Seu nome"
+                            {...field}
                             className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-accent focus:ring-accent/20 transition-all"
                           />
                         </FormControl>
@@ -138,7 +160,7 @@ export function LeadForm() {
                       </FormItem>
                     )}
                   />
-                  
+
                   <FormField
                     control={form.control}
                     name="whatsapp"
@@ -146,9 +168,9 @@ export function LeadForm() {
                       <FormItem>
                         <FormLabel className="text-white/80">WhatsApp</FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="(00) 9 9999-9999" 
-                            {...field} 
+                          <Input
+                            placeholder="(00) 9 9999-9999"
+                            {...field}
                             className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-accent focus:ring-accent/20 transition-all"
                           />
                         </FormControl>
@@ -164,9 +186,9 @@ export function LeadForm() {
                       <FormItem>
                         <FormLabel className="text-white/80">@ da empresa no Instagram</FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="@empresa" 
-                            {...field} 
+                          <Input
+                            placeholder="@empresa"
+                            {...field}
                             className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-accent focus:ring-accent/20 transition-all"
                           />
                         </FormControl>
@@ -201,11 +223,16 @@ export function LeadForm() {
                     )}
                   />
 
-                  <Button 
-                    type="submit" 
-                    className="w-full h-14 text-lg font-bold bg-[#FFD000] hover:bg-[#E6BC00] text-black rounded-lg shadow-[0_4px_20px_rgba(255,208,0,0.3)] hover:shadow-[0_8px_30px_rgba(255,208,0,0.4)] transition-all duration-300 mt-4"
+                  {error && (
+                    <p className="text-red-500 text-sm text-center">{error}</p>
+                  )}
+
+                  <Button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full h-14 text-lg font-bold bg-[#FFD000] hover:bg-[#E6BC00] text-black rounded-lg shadow-[0_4px_20px_rgba(255,208,0,0.3)] hover:shadow-[0_8px_30px_rgba(255,208,0,0.4)] transition-all duration-300 mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    Enviar
+                    {isLoading ? "Enviando..." : "Enviar"}
                   </Button>
                 </form>
               </Form>
