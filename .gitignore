@@ -3,3 +3,6 @@ node_modules
 server/public
 vite.config.ts.*
 *.tar.gz
+server/trace-company-f552dcebe391.json
+server/*-credentials.json
+*.serviceaccount.json
