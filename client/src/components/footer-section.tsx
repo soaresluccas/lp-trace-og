@@ -38,7 +38,7 @@ export function FooterSection() {
       
         {/* Copyright */}
         <div className="w-full pb-12 pt-0 flex flex-col md:flex-col items-center justify-center gap-2 text-sm text-white/40">
-          <p className="text-center md:text-left"> CNPJ: 51.067.160/0001-99</p>
+          <p className="text-center md:text-left"> CNPJ: 64.739.513/0001-00</p>
           <a href="mailto:ricardo@tracecompany.com.br" className="text-center md:text-right">
             <Mail className="w-6 h-6 inline-block mr-2" />
             ricardo@tracecompany.com.br

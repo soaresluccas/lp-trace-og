@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { LeadForm } from "@/components/lead-form";
 import { ArrowRight } from "lucide-react";
 import heroBg from "@assets/generated_images/dark_cinematic_food_photography_for_delivery_landing_page_background.png";
 
@@ -50,7 +49,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="-mt-18 max-w-4xl mx-auto text-4xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
         >
-          Acelere o faturamento do seu delivery com o <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD000] via-[#FFD000] to-[#FF5A00]">Método CAC</span>
+          Escale as vendas da sua consultoria online usando um <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD000] via-[#FFD000] to-[#FF5A00]">sistema validado de marketing</span>
         </motion.h1>
 
         {/* Subheadline */}
@@ -60,7 +59,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed mb-10"
         >
-          Agende uma análise gratuita e descubra como a aplicação do nosso método pode levar o seu delivery para o próximo nível.
+          Agende uma análise gratuita e descubra como estruturar o seu marketing para gerar alunos todos os dias, sem depender do algoritmo.
         </motion.p>
 
         {/* CTA Button */}
@@ -78,11 +77,6 @@ export function HeroSection() {
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </motion.div>
-
-        {/* Card Form Container */}
-        <div id="lead-form-container" className="w-full flex justify-center px-2 md:px-0">
-          <LeadForm />
-        </div>
 
       </div>
 

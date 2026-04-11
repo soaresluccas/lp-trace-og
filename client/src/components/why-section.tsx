@@ -7,14 +7,14 @@ import { Target, TrendingUp, BarChart3, Zap, ArrowRight } from "lucide-react";
 const features = [
   {
     id: "card-1",
-    title: "Independência dos Marketplaces",
-    text: "Pare de depender dos marketplaces e construa uma base sólida de clientes próprios, sem perder margem.",
+    title: "Independência do Orgânico",
+    text: "Reduza a dependência do algoritmo e tenha controle sobre a sua geração de alunos.",
     icon: Target,
   },
   {
     id: "card-2",
     title: "Retorno sobre Investimento",
-    text: "Transforme seus investimentos em tráfego em vendas reais e mensuráveis para o seu delivery.",
+    text: "Pare de queimar dinheiro com tráfego pago genérico e passe a ver o seu investimento trazer o retorno esperado, o de novos alunos.",
     icon: TrendingUp,
   },
   {
@@ -26,7 +26,7 @@ const features = [
   {
     id: "card-4",
     title: "Crescimento Acelerado",
-    text: "Método validado para acelerar o crescimento do seu delivery em tempo recorde.",
+    text: "Aplicamos um sistema validado para escalar sua consultoria com consistência.",
     icon: Zap,
   },
 ];
@@ -104,7 +104,7 @@ export function WhySection() {
             viewport={!prefersReducedMotion ? { once: true, amount: 0.5 } : undefined}
             transition={!prefersReducedMotion ? { duration: 0.6, delay: 0.2, ease: "easeOut" } : undefined}
           >
-            Somos uma agência de Marketing de Crescimento especializada no mercado de delivery. Criamos o Método CAC e é através dele que os nossos clientes batem recorde de faturamento todos os meses.
+            Somos uma agência de Marketing de Crescimento especializada no mercado fitness. Estamos desde 2023 levando personais a baterem recordes de faturamento no online.
           </motion.p>
         </div>
 
@@ -148,13 +148,13 @@ export function WhySection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <Button
+          {/* <Button
             onClick={scrollToForm}
             className="px-10 py-7 text-lg font-bold rounded-2xl bg-gradient-to-r from-[#FFD000] to-[#b87a00] text-black shadow-[0_10px_30px_rgba(255,180,0,0.2)] hover:shadow-[0_15px_40px_rgba(255,180,0,0.3)] hover:-translate-y-1 transition-all duration-300 border border-white/10"
           >
             Quero vender mais
             <ArrowRight className="ml-2 h-5 w-5 stroke-[2.5]" />
-          </Button>
+          </Button> */}
         </motion.div>
       </div>
     </section>

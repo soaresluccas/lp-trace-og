@@ -10,13 +10,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -27,7 +20,6 @@ const formSchema = z.object({
   name: z.string().min(2, "Nome é obrigatório"),
   whatsapp: z.string().min(10, "WhatsApp inválido"),
   instagram: z.string().optional(),
-  revenue: z.string().min(1, "Selecione o faturamento"),
 });
 
 export function LeadForm() {
@@ -41,7 +33,6 @@ export function LeadForm() {
       name: "",
       whatsapp: "",
       instagram: "",
-      revenue: "",
     },
   });
 
@@ -57,7 +48,6 @@ export function LeadForm() {
           name: values.name,
           whatsapp: values.whatsapp,
           instagram: values.instagram,
-          revenue: values.revenue,
         }),
       });
 
@@ -184,40 +174,14 @@ export function LeadForm() {
                     name="instagram"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-white/80">@ da empresa no Instagram</FormLabel>
+                        <FormLabel className="text-white/80">Seu @ no Instagram</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="@empresa"
+                            placeholder="@seuperfil"
                             {...field}
                             className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-accent focus:ring-accent/20 transition-all"
                           />
                         </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="revenue"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-white/80">Média de faturamento mensal</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger className="bg-white/5 border-white/10 text-white h-12 focus:border-accent focus:ring-accent/20 transition-all">
-                              <SelectValue placeholder="Selecione uma opção" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent className="bg-[#0f0f0f] border-white/10 text-white">
-                            <SelectItem value="under_30">Menos de 30 mil/mês</SelectItem>
-                            <SelectItem value="30_50">30–50 mil/mês</SelectItem>
-                            <SelectItem value="50_75">50–75 mil/mês</SelectItem>
-                            <SelectItem value="75_100">75–100 mil/mês</SelectItem>
-                            <SelectItem value="100_200">100–200 mil/mês</SelectItem>
-                            <SelectItem value="over_200">Acima de 200 mil/mês</SelectItem>
-                          </SelectContent>
-                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}

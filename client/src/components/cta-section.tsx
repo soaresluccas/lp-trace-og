@@ -89,7 +89,7 @@ export function CTASection() {
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 tracking-tight font-display max-w-4xl">
               Chegou a hora de fazer o seu{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-yellow-400">
-                delivery crescer
+                online crescer
               </span>{" "}
               de verdade!
             </h2>
@@ -129,7 +129,7 @@ export function CTASection() {
               />
               <button onClick={scrollToForm}>
                 <span className="relative cursor-pointer z-10 flex items-center justify-center gap-3 group-hover:text-white transition-colors duration-300">
-                  Quero Vender Mais
+                  Quero Escalar Minha Consultoria
                   <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${isHovered ? "translate-x-1" : ""}`} />
                 </span>
               </button>
