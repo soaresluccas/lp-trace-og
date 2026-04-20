@@ -18,3 +18,27 @@ id = "_inVrzmIKRb645YpYzBbE"
 uri = "file://client/public/hero-bg_3.jpg"
 type = "image"
 title = "fitness professional laptop"
+
+[[outputs]]
+id = "l0nnXtbRI3qDEd2X17leU"
+uri = "file://client/public/hero-bg-gym_1.jpg"
+type = "image"
+title = "personal trainer instructing client at gym modern professional dark background"
+
+[[outputs]]
+id = "Xu2SThDmVSMeFF2TSEs1w"
+uri = "file://client/public/hero-bg-gym_2.jpg"
+type = "image"
+title = "personal trainer instructing client at gym modern professional dark background"
+
+[[outputs]]
+id = "U-4u23Wo1slKUcweVsGEV"
+uri = "file://client/public/hero-bg-gym_3.jpg"
+type = "image"
+title = "personal trainer instructing client at gym modern professional dark background"
+
+[[outputs]]
+id = "afaC5wGLPEFFKJU3_rg_S"
+uri = "file://client/public/hero-bg-gym-real.jpg"
+type = "image"
+title = "real personal trainer coaching client in a gym professional lifting weights"

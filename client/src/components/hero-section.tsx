@@ -15,12 +15,12 @@ export function HeroSection() {
       {/* Background Image with Overlay */}
       <div className="relative w-full h-[50vh] md:absolute md:inset-0 md:h-full z-0">
         <img
-          src="/hero-bg_2.jpg"
-          alt="Personal trainer trabalhando no notebook"
-          className="w-full h-full object-cover grayscale-[10%] opacity-60"
+          src="/hero-bg-gym-real.jpg"
+          alt="Personal trainer at the gym"
+          className="w-full h-full object-cover grayscale-[10%] opacity-50"
         />
         {/* Complex gradient overlay for depth and readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-[#070505]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070505]/95 via-[#070505]/60 to-[#070505]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0)_0%,_#070505_100%)]" />
       </div>
 
