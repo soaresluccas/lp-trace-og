@@ -65,24 +65,24 @@ export function TestimonialsSection() {
             >
               <div className="group relative flex flex-col text-center rounded-2xl h-full bg-[#0f0f0f] border border-white/5 hover:border-white/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)] overflow-hidden">
                 {/* Hover gradient */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[linear-gradient(135deg,rgba(255,208,0,0.03)_0%,rgba(184,122,0,0.01)_100%)] pointer-events-none" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[linear-gradient(135deg,rgba(255,208,0,0.03)_0%,rgba(184,122,0,0.01)_100%)] pointer-events-none z-20" />
 
                 {/* Bottom bar on hover */}
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#FFD000] to-[#FF5A00] group-hover:w-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,208,0,0.5)] z-20" />
+                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#FFD000] to-[#FF5A00] group-hover:w-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,208,0,0.5)] z-30" />
 
                 {/* Image Container Background */}
-                <div className="relative w-full h-[280px] shrink-0 overflow-hidden">
+                <div className="relative w-full h-[280px] shrink-0 overflow-hidden z-0">
                   <div 
-                    className="absolute inset-0 bg-cover bg-no-repeat transition-transform duration-700 group-hover:scale-105"
+                    className="absolute inset-0 bg-cover bg-no-repeat transition-transform duration-700 group-hover:scale-105 z-0"
                     style={{ backgroundImage: `url(${item.image})`, backgroundPosition: 'top center' }}
                   />
                   {/* Shadow overlay blending into the card background */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/40 to-transparent" />
-                  <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0f0f0f] to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/40 to-transparent pointer-events-none z-10" />
+                  <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0f0f0f] to-transparent pointer-events-none z-10" />
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col items-center px-8 pb-10 pt-2 grow">
+                <div className="relative z-20 flex flex-col items-center px-8 pb-10 pt-2 grow">
                   {/* Name */}
                   <h3 className="text-2xl font-bold text-white font-display mb-1 group-hover:text-[#FFD000] transition-colors duration-300 drop-shadow-sm">
                     {item.name}
