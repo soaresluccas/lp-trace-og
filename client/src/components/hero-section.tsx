@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroBg from "@assets/generated_images/dark_cinematic_food_photography_for_delivery_landing_page_background.png";
 
 export function HeroSection() {
   const scrollToForm = () => {
@@ -16,9 +15,9 @@ export function HeroSection() {
       {/* Background Image with Overlay */}
       <div className="relative w-full h-[50vh] md:absolute md:inset-0 md:h-full z-0">
         <img
-          src="/831475.jpg"
-          alt="Delicious delivery food"
-          className="w-full h-full object-cover grayscale-[30%]"
+          src="/hero-bg_1.jpg"
+          alt="Personal trainer trabalhando no notebook"
+          className="w-full h-full object-cover grayscale-[20%] opacity-40"
         />
         {/* Complex gradient overlay for depth and readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-[#070505]" />

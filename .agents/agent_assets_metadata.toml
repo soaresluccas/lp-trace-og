@@ -1,0 +1,20 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "Ekl6ROEIqHoXms7lo8z81"
+uri = "file://client/public/hero-bg_1.jpg"
+type = "image"
+title = "fitness professional laptop"
+
+[[outputs]]
+id = "1nimjjPOgF5XEcoCHHrtJ"
+uri = "file://client/public/hero-bg_2.jpg"
+type = "image"
+title = "fitness professional laptop"
+
+[[outputs]]
+id = "_inVrzmIKRb645YpYzBbE"
+uri = "file://client/public/hero-bg_3.jpg"
+type = "image"
+title = "fitness professional laptop"
