@@ -2,7 +2,6 @@ import { CTASection } from "@/components/cta-section";
 import { FooterSection } from "@/components/footer-section";
 import { HeroSection } from "@/components/hero-section";
 import { LeadForm } from "@/components/lead-form";
-import { MethodSection } from "@/components/method-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { WhySection } from "@/components/why-section";
 
@@ -15,7 +14,6 @@ export default function Home() {
       <section id="lead-form-container" className="py-12 md:py-20 px-4 bg-[#070505] flex justify-center">
         <LeadForm />
       </section>
-      <MethodSection />
       <CTASection />
       <FooterSection />
       
