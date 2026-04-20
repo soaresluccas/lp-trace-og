@@ -46,7 +46,7 @@ export function TestimonialsSection() {
             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-gray-200 to-gray-500">
               Personais que confiam no
             </span>{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFD000] to-[#FF5A00]">
+            <span className="text-[#FFD000]">
               nosso trabalho
             </span>
           </motion.h2>
@@ -68,11 +68,11 @@ export function TestimonialsSection() {
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[linear-gradient(135deg,rgba(255,208,0,0.03)_0%,rgba(184,122,0,0.01)_100%)] pointer-events-none z-0" />
 
                 {/* Bottom bar on hover */}
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#FFD000] to-[#FF5A00] group-hover:w-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,208,0,0.5)] z-30" />
+                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#FFD000] to-[#FFD000] group-hover:w-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,208,0,0.5)] z-30" />
 
                 {/* Circular Avatar */}
                 <div className="relative w-28 h-28 mb-6 shrink-0 z-20">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#FFD000] to-[#FF5A00] p-[2px] opacity-50 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#FFD000] to-[#FFD000] p-[2px] opacity-50 group-hover:opacity-100 transition-opacity duration-500">
                     <img 
                       src={item.image} 
                       alt={item.name}

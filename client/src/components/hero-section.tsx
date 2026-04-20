@@ -48,7 +48,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="-mt-18 max-w-4xl mx-auto text-4xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
         >
-          Escale as vendas da sua consultoria online usando um <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD000] via-[#FFD000] to-[#FF5A00]">sistema validado de marketing</span>
+          Escale as vendas da sua consultoria online usando um <span className="text-[#FFD000]">sistema validado de marketing</span>
         </motion.h1>
 
         {/* Subheadline */}

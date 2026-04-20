@@ -92,7 +92,7 @@ export function WhySection() {
             transition={!prefersReducedMotion ? { duration: 0.6 } : undefined}
           >
            
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFD000] to-[#FF5A00]">
+            <span className="text-[#FFD000]">
               Trace Company?
             </span>
           </motion.h2>
@@ -119,7 +119,7 @@ export function WhySection() {
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[linear-gradient(135deg,rgba(255,208,0,0.03)_0%,rgba(184,122,0,0.01)_100%)]" />
 
                 {/* Progressive Bottom Bar */}
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#FFD000] to-[#FF5A00] group-hover:w-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,208,0,0.5)]" />
+                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#FFD000] to-[#FFD000] group-hover:w-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,208,0,0.5)]" />
 
                 <div className="relative z-10">
                   {/* Icon Badge */}

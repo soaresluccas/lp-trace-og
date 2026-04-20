@@ -88,7 +88,7 @@ export function CTASection() {
 
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 tracking-tight font-display max-w-4xl">
               Chegou a hora de fazer o seu{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-yellow-400">
+              <span className="text-[#FFD000]">
                 online crescer
               </span>{" "}
               de verdade!
