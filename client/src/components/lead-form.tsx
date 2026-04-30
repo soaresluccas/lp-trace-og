@@ -20,6 +20,11 @@ const formSchema = z.object({
   name: z.string().min(2, "Nome é obrigatório"),
   whatsapp: z.string().min(10, "WhatsApp inválido"),
   instagram: z.string().optional(),
+  utm_source: z.string().optional(),
+  utm_medium: z.string().optional(),
+  utm_campaign: z.string().optional(),
+  utm_content: z.string().optional(),
+  utm_term: z.string().optional(),
 });
 
 export function LeadForm() {
@@ -27,12 +32,19 @@ export function LeadForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const searchParams = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       whatsapp: "",
       instagram: "",
+      utm_source: searchParams.get("utm_source") || "",
+      utm_medium: searchParams.get("utm_medium") || "",
+      utm_campaign: searchParams.get("utm_campaign") || "",
+      utm_content: searchParams.get("utm_content") || "",
+      utm_term: searchParams.get("utm_term") || "",
     },
   });
 
@@ -48,6 +60,11 @@ export function LeadForm() {
           name: values.name,
           whatsapp: values.whatsapp,
           instagram: values.instagram,
+          utm_source: values.utm_source,
+          utm_medium: values.utm_medium,
+          utm_campaign: values.utm_campaign,
+          utm_content: values.utm_content,
+          utm_term: values.utm_term,
         }),
       });
 
