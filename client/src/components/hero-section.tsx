@@ -16,7 +16,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[#070505] z-0" />
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-4 pt-8 md:pt-40 flex flex-col items-center text-center justify-center h-full"
+      <div className="relative z-10 container mx-auto px-4 pt-8 md:pt-40 flex flex-col items-center text-center justify-center h-full">
 
         {/* Eyebrow */}
         <motion.div
