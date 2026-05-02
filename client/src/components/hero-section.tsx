@@ -11,21 +11,12 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center pb-10 md:pb-20 bg-[#070505]">
-      {/* Background Image with Overlay */}
-      <div className="relative w-full h-[50vh] md:absolute md:inset-0 md:h-full z-0">
-        <img
-          src="/hero-bg-gym-real.jpg"
-          alt="Personal trainer at the gym"
-          className="w-full h-full object-cover grayscale-[10%] opacity-50"
-        />
-        {/* Complex gradient overlay for depth and readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#070505]/95 via-[#070505]/60 to-[#070505]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0)_0%,_#070505_100%)]" />
-      </div>
+    <section className="relative w-full overflow-hidden flex flex-col items-center pb-10 md:pb-20 bg-[#070505] min-h-screen">
+      {/* Background - Solid Black */}
+      <div className="absolute inset-0 bg-[#070505] z-0" />
 
       {/* Content Container */}
-      <div className="-mt-24 relative z-10 container mx-auto px-4 pt-10 md:pt-40 md:mt-18 flex flex-col items-center text-center">
+      <div className="relative z-10 container mx-auto px-4 pt-8 md:pt-40 flex flex-col items-center text-center justify-center h-full"
 
         {/* Eyebrow */}
         <motion.div
@@ -37,7 +28,7 @@ export function HeroSection() {
           <img
             src="/Logo.png"
             alt="Logo"
-            className="h-auto w-56 -mt-48 -mb-56"
+            className="h-auto w-56"
           />
         </motion.div>
 
@@ -46,7 +37,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="-mt-18 max-w-4xl mx-auto text-4xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
+          className="max-w-4xl mx-auto text-4xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
         >
           Escale as vendas da sua consultoria online usando um <span className="text-[#FFD000]">sistema validado de marketing</span>
         </motion.h1>
@@ -78,9 +69,6 @@ export function HeroSection() {
         </motion.div>
 
       </div>
-
-      {/* Bottom Fade to seamless blend if content continues */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#070505] to-transparent z-0 pointer-events-none" />
     </section>
   );
 }

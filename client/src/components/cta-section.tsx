@@ -26,8 +26,8 @@ export function CTASection() {
           {/* Animated Background */}
           <div className="absolute inset-0 bg-[#0f0f0f]">
             {/* Moving Gradient Orbs - Enhanced */}
-            <motion.div
-              className="absolute top-[-50%] left-[-20%] w-[80%] h-[150%] bg-gradient-to-br from-orange-600/30 via-yellow-500/20 to-orange-400/10 blur-[120px] rounded-full mix-blend-screen"
+             <motion.div
+              className="absolute top-[-50%] left-[-20%] w-[80%] h-[150%] bg-gradient-to-br from-yellow-500/30 via-yellow-400/20 to-yellow-300/10 blur-[120px] rounded-full mix-blend-screen"
               animate={{
                 x: [0, 150, 0],
                 y: [0, -80, 0],
@@ -42,7 +42,7 @@ export function CTASection() {
               }}
             />
             <motion.div
-              className="absolute bottom-[-50%] right-[-20%] w-[80%] h-[150%] bg-gradient-to-tl from-yellow-600/30 via-orange-500/20 to-yellow-400/10 blur-[120px] rounded-full mix-blend-screen"
+              className="absolute bottom-[-50%] right-[-20%] w-[80%] h-[150%] bg-gradient-to-tl from-yellow-400/30 via-yellow-300/20 to-yellow-200/10 blur-[120px] rounded-full mix-blend-screen"
               animate={{
                 x: [0, -150, 0],
                 y: [0, 80, 0],
@@ -69,29 +69,28 @@ export function CTASection() {
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ type: "spring", duration: 0.8 }}
-              className="w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-orange-500 to-yellow-500 p-[1px] mb-6 md:mb-8 shadow-[0_0_30px_rgba(255,165,0,0.3)] relative overflow-hidden"
+              className="w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-yellow-400 to-yellow-300 p-[1px] mb-6 md:mb-8 shadow-[0_0_30px_rgba(255,208,0,0.3)] relative overflow-hidden"
             >
               <div className="w-full h-full rounded-[15px] bg-[#0f0f0f] flex items-center justify-center relative z-10 p-2">
                 <img
                   src="/Logo.png"
                   alt="TRACE Logo"
-                  className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(255,165,0,0.5)]"
+                  className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(255,208,0,0.5)]"
                 />
               </div>
               {/* Icon Glow Animation */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-yellow-500/20 blur-xl"
+                className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-300/20 blur-xl"
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
             </motion.div>
 
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 tracking-tight font-display max-w-4xl">
-              Chegou a hora de fazer o seu{" "}
+              Chegou a hora de fazer o seu online{" "}
               <span className="text-[#FFD000]">
-                online crescer
-              </span>{" "}
-              de verdade!
+                crescer de verdade
+              </span>!
             </h2>
 
             <p className="text-base md:text-lg text-gray-400 mb-8 md:mb-12 max-w-2xl leading-relaxed">
@@ -102,14 +101,14 @@ export function CTASection() {
 
             {/* Unique CTA Button */}
             <motion.button
-              className="group relative px-6 py-3 md:px-10 md:py-5 bg-white text-black font-bold text-sm md:text-lg rounded-full overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_80px_rgba(255,165,0,0.6)] transition-shadow duration-500 cursor-pointer w-full md:w-auto"
+              className="group relative px-6 py-3 md:px-10 md:py-5 bg-white text-black font-bold text-sm md:text-lg rounded-full overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_80px_rgba(255,208,0,0.6)] transition-shadow duration-500 cursor-pointer w-full md:w-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onHoverStart={() => setIsHovered(true)}
               onHoverEnd={() => setIsHovered(false)}
             >
               {/* Button Background Gradient Animation */}
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Shine Effect */}
               <motion.div

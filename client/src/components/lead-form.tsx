@@ -15,6 +15,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { useState } from "react";
+import { submitLead } from "@/services/api";
 
 const formSchema = z.object({
   name: z.string().min(2, "Nome é obrigatório"),
@@ -53,24 +54,16 @@ export function LeadForm() {
     setError(null);
 
     try {
-      const response = await fetch("/api/webhook/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: values.name,
-          whatsapp: values.whatsapp,
-          instagram: values.instagram,
-          utm_source: values.utm_source,
-          utm_medium: values.utm_medium,
-          utm_campaign: values.utm_campaign,
-          utm_content: values.utm_content,
-          utm_term: values.utm_term,
-        }),
+      await submitLead({
+        name: values.name,
+        whatsapp: values.whatsapp,
+        instagram: values.instagram,
+        utm_source: values.utm_source,
+        utm_medium: values.utm_medium,
+        utm_campaign: values.utm_campaign,
+        utm_content: values.utm_content,
+        utm_term: values.utm_term,
       });
-
-      if (!response.ok) {
-        throw new Error("Erro ao enviar formulário");
-      }
 
       setSubmitted(true);
     } catch (err) {
