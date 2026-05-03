@@ -11,12 +11,12 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center pb-10 md:pb-20 bg-[#070505] min-h-screen">
+    <section className="relative w-full overflow-hidden flex flex-col items-center py-12 md:py-24 bg-[#070505]">
       {/* Background - Solid Black */}
       <div className="absolute inset-0 bg-[#070505] z-0" />
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-4 pt-8 md:pt-40 flex flex-col items-center text-center justify-center h-full">
+      <div className="relative z-10 container mx-auto px-4 flex flex-col items-center text-center">
 
         {/* Eyebrow */}
         <motion.div
@@ -57,7 +57,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mb-20"
+          className="mb-8"
         >
           <Button
             onClick={scrollToForm}
