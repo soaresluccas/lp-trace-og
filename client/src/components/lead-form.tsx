@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, X } from "lucide-react";
 import { useState } from "react";
 import { submitLead } from "@/services/api";
 
@@ -32,6 +32,16 @@ export function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const formatPhoneNumber = (value: string) => {
+    const cleaned = value.replace(/\D/g, "");
+    const limited = cleaned.slice(0, 11);
+    
+    if (limited.length === 0) return "";
+    if (limited.length <= 2) return `(${limited}`;
+    if (limited.length <= 7) return `(${limited.slice(0, 2)}) ${limited.slice(2)}`;
+    return `(${limited.slice(0, 2)}) ${limited.slice(2, 7)}-${limited.slice(7)}`;
+  };
 
   const searchParams = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
 
@@ -76,22 +86,47 @@ export function LeadForm() {
 
   if (submitted) {
     return (
-      <Card className="w-full max-w-[900px] mx-auto bg-gradient-to-b from-[#1a1a1a]/90 to-[#000000]/90 border-none backdrop-blur-md shadow-2xl p-12 text-center">
+      <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+          onClick={() => setSubmitted(false)}
+        />
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.8, opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center justify-center gap-4"
+          className="relative z-10 w-full max-w-[500px] mx-4"
         >
-          <div className="h-20 w-20 rounded-full bg-accent/20 flex items-center justify-center">
-            <CheckCircle2 className="h-10 w-10 text-accent" />
-          </div>
-          <h2 className="text-3xl font-bold text-white font-display">Obrigado!</h2>
-          <p className="text-muted-foreground text-lg max-w-md">
-            Recebemos suas informações. Um de nossos especialistas entrará em contato em breve.
-          </p>
+          <Card className="bg-gradient-to-b from-[#1a1a1a]/95 to-[#000000]/95 border border-white/10 backdrop-blur-md shadow-2xl p-12 text-center">
+            <button
+              onClick={() => setSubmitted(false)}
+              className="absolute top-6 right-6 p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
+            >
+              <X className="h-6 w-6 text-white/60 hover:text-white" />
+            </button>
+            <div className="flex flex-col items-center justify-center gap-4">
+              <div className="h-20 w-20 rounded-full bg-accent/20 flex items-center justify-center">
+                <CheckCircle2 className="h-10 w-10 text-accent" />
+              </div>
+              <h2 className="text-3xl font-bold text-white font-display">Obrigado!</h2>
+              <p className="text-muted-foreground text-lg max-w-md">
+                Recebemos suas informações. Um de nossos especialistas entrará em contato em breve.
+              </p>
+              <button
+                onClick={() => setSubmitted(false)}
+                className="mt-6 px-8 py-3 bg-[#FFD000] hover:bg-[#E6BC00] text-black font-bold rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,208,0,0.3)]"
+              >
+                Fechar
+              </button>
+            </div>
+          </Card>
         </motion.div>
-      </Card>
+      </div>
     );
   }
 
@@ -171,6 +206,11 @@ export function LeadForm() {
                           <Input
                             placeholder="(00) 9 9999-9999"
                             {...field}
+                            onChange={(e) => {
+                              const formatted = formatPhoneNumber(e.target.value);
+                              field.onChange(formatted);
+                            }}
+                            maxLength={14}
                             className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-accent focus:ring-accent/20 transition-all"
                           />
                         </FormControl>
