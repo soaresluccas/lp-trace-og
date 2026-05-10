@@ -23,7 +23,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-8 -mt-24"
+          className="mb-8 -mt-4"
         >
           <img
             src="/Logo.png"
@@ -57,7 +57,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="-mt-4 -mb-12" 
+          className="-mt-4 mb-12 md:-mb-44" 
         >
           <Button
             onClick={scrollToForm}
