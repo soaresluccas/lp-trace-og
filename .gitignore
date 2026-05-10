@@ -6,3 +6,6 @@ vite.config.ts.*
 server/trace-company-f552dcebe391.json
 server/*-credentials.json
 *.serviceaccount.json
+
+.env*
+

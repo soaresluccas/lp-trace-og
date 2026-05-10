@@ -16,7 +16,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[#070505] z-0" />
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-4 flex flex-col items-center text-center">
+      <div className="relative z-10 container mx-auto px-4 flex flex-col items-center text-center -mt-24">
 
         {/* Eyebrow */}
         <motion.div
@@ -37,7 +37,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="-mt-24 max-w-4xl mx-auto text-4xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
+          className="-mt-12 max-w-4xl mx-auto text-4xl md:text-4xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 font-display"
         >
           Escale as vendas da sua consultoria online usando um <span className="text-[#FFD000]">sistema validado de marketing</span>
         </motion.h1>
@@ -61,7 +61,7 @@ export function HeroSection() {
         >
           <Button
             onClick={scrollToForm}
-            className="h-14 px-8 rounded-full text-lg font-bold bg-[#FFD000] hover:bg-[#E6BC00] text-black shadow-[0_0_30px_rgba(255,208,0,0.4)] hover:shadow-[0_0_50px_rgba(255,208,0,0.6)] hover:scale-105 transition-all duration-300"
+            className="mb-24 h-14 px-8 rounded-full text-lg font-bold bg-[#FFD000] hover:bg-[#E6BC00] text-black shadow-[0_0_30px_rgba(255,208,0,0.4)] hover:shadow-[0_0_50px_rgba(255,208,0,0.6)] hover:scale-105 transition-all duration-300"
           >
             Agendar Análise Gratuita
             <ArrowRight className="ml-2 h-5 w-5" />
