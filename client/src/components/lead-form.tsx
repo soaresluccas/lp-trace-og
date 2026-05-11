@@ -66,7 +66,7 @@ export function LeadForm() {
     try {
       await submitLead({
         name: values.name,
-        whatsapp: values.whatsapp,
+        whatsapp: values.whatsapp.replace(/\D/g, ""),
         instagram: values.instagram,
         utm_source: values.utm_source,
         utm_medium: values.utm_medium,
