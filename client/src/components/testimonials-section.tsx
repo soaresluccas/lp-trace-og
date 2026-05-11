@@ -27,7 +27,7 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="relative py-12 md:py-20 px-4 overflow-hidden bg-[#070505] max-h-[400px] md:max-h-none">
+    <section className="relative py-12 md:py-20 px-4 overflow-hidden bg-[#070505]">
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[50%] rounded-[40%] bg-[radial-gradient(circle_at_center,rgba(255,208,0,0.05)_0%,transparent_60%)]" />

@@ -210,7 +210,7 @@ export function LeadForm() {
                               const formatted = formatPhoneNumber(e.target.value);
                               field.onChange(formatted);
                             }}
-                            maxLength={14}
+                            maxLength={15}
                             className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-accent focus:ring-accent/20 transition-all"
                           />
                         </FormControl>
