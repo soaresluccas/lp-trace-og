@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   const scrollToForm = () => {
@@ -57,11 +57,11 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="-mt-4 mb-12 md:-mb-44" 
+          className="-mt-4 mb-6 md:mb-12 md:-mb-44"
         >
           <Button
             onClick={scrollToForm}
-            className="mb-24 h-14 px-8 rounded-full text-lg font-bold bg-[#FFD000] hover:bg-[#E6BC00] text-black shadow-[0_0_30px_rgba(255,208,0,0.4)] hover:shadow-[0_0_50px_rgba(255,208,0,0.6)] hover:scale-105 transition-all duration-300"
+            className="h-14 px-8 rounded-full text-lg font-bold bg-[#FFD000] hover:bg-[#E6BC00] text-black shadow-[0_0_30px_rgba(255,208,0,0.4)] hover:shadow-[0_0_50px_rgba(255,208,0,0.6)] hover:scale-105 transition-all duration-300 md:mb-24"
           >
             Agendar Análise Gratuita
             <ArrowRight className="ml-2 h-5 w-5" />
