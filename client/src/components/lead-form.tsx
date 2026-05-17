@@ -18,9 +18,11 @@ import { useState } from "react";
 import { submitLead } from "@/services/api";
 
 const formSchema = z.object({
-  name: z.string().min(2, "Nome é obrigatório"),
-  whatsapp: z.string().min(10, "WhatsApp inválido"),
-  instagram: z.string().optional(),
+  name: z.string().trim().min(2, "Nome é obrigatório"),
+  whatsapp: z
+    .string()
+    .refine((value) => value.replace(/\D/g, "").length >= 10, "WhatsApp inválido"),
+  instagram: z.string().trim().min(1, "Instagram é obrigatório"),
   utm_source: z.string().optional(),
   utm_medium: z.string().optional(),
   utm_campaign: z.string().optional(),
@@ -41,6 +43,15 @@ export function LeadForm() {
     if (limited.length <= 2) return `(${limited}`;
     if (limited.length <= 7) return `(${limited.slice(0, 2)}) ${limited.slice(2)}`;
     return `(${limited.slice(0, 2)}) ${limited.slice(2, 7)}-${limited.slice(7)}`;
+  };
+
+  const trackLeadEvent = () => {
+    if (typeof window === "undefined") return;
+
+    const fbq = (window as Window & { fbq?: (...args: unknown[]) => void }).fbq;
+    if (typeof fbq === "function") {
+      fbq("track", "Lead");
+    }
   };
 
   const searchParams = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
@@ -75,6 +86,7 @@ export function LeadForm() {
         utm_term: values.utm_term,
       });
 
+      trackLeadEvent();
       setSubmitted(true);
     } catch (err) {
       setError("Ocorreu um erro. Por favor, tente novamente.");
@@ -187,6 +199,7 @@ export function LeadForm() {
                         <FormControl>
                           <Input
                             placeholder="Seu nome"
+                            required
                             {...field}
                             className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-accent focus:ring-accent/20 transition-all"
                           />
@@ -205,6 +218,7 @@ export function LeadForm() {
                         <FormControl>
                           <Input
                             placeholder="(00) 9 9999-9999"
+                            required
                             {...field}
                             onChange={(e) => {
                               const formatted = formatPhoneNumber(e.target.value);
@@ -228,6 +242,7 @@ export function LeadForm() {
                         <FormControl>
                           <Input
                             placeholder="@seuperfil"
+                            required
                             {...field}
                             className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 focus:border-accent focus:ring-accent/20 transition-all"
                           />
