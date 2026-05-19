@@ -49,7 +49,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed mb-10"
         >
-          Agende uma análise gratuita e descubra como estruturar o seu marketing para gerar alunos todos os dias, sem depender do algoritmo.
+          Agende uma análise gratuita e descubra como estruturar o seu marketing para gerar alunos todos os dias, sem depender do algoritmo ou de indicação.
         </motion.p>
 
         {/* CTA Button */}

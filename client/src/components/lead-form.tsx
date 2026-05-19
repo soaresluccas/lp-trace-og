@@ -45,12 +45,26 @@ export function LeadForm() {
     return `(${limited.slice(0, 2)}) ${limited.slice(2, 7)}-${limited.slice(7)}`;
   };
 
-  const trackLeadEvent = () => {
+  const trackLeadEvent = (utmParams: {
+    utm_source?: string;
+    utm_medium?: string;
+    utm_campaign?: string;
+    utm_content?: string;
+    utm_term?: string;
+  }) => {
     if (typeof window === "undefined") return;
 
     const fbq = (window as Window & { fbq?: (...args: unknown[]) => void }).fbq;
     if (typeof fbq === "function") {
-      fbq("track", "Lead");
+      const eventParams: Record<string, string> = {};
+      
+      if (utmParams.utm_source) eventParams.utm_source = utmParams.utm_source;
+      if (utmParams.utm_medium) eventParams.utm_medium = utmParams.utm_medium;
+      if (utmParams.utm_campaign) eventParams.utm_campaign = utmParams.utm_campaign;
+      if (utmParams.utm_content) eventParams.utm_content = utmParams.utm_content;
+      if (utmParams.utm_term) eventParams.utm_term = utmParams.utm_term;
+
+      fbq("track", "Lead", eventParams);
     }
   };
 
@@ -86,7 +100,13 @@ export function LeadForm() {
         utm_term: values.utm_term,
       });
 
-      trackLeadEvent();
+      trackLeadEvent({
+        utm_source: values.utm_source,
+        utm_medium: values.utm_medium,
+        utm_campaign: values.utm_campaign,
+        utm_content: values.utm_content,
+        utm_term: values.utm_term,
+      });
       setSubmitted(true);
     } catch (err) {
       setError("Ocorreu um erro. Por favor, tente novamente.");

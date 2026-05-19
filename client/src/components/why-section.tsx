@@ -104,7 +104,7 @@ export function WhySection() {
             viewport={!prefersReducedMotion ? { once: true, amount: 0.5 } : undefined}
             transition={!prefersReducedMotion ? { duration: 0.6, delay: 0.2, ease: "easeOut" } : undefined}
           >
-            Somos uma agência de Marketing de Crescimento especializada no mercado fitness. Estamos desde 2023 levando personais a baterem recordes de faturamento no online.
+            Somos uma agência de Marketing de Performance especializada no mercado fitness. Estamos desde 2023 levando personais a baterem recordes de faturamento no online.
           </motion.p>
         </div>
 
