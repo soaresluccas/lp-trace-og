@@ -7,7 +7,13 @@ import { metaImagesPlugin } from "./vite-plugin-meta-images";
 
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: [
+          ['@babel/plugin-transform-react-jsx', { runtime: 'automatic' }]
+        ]
+      }
+    }),
     runtimeErrorOverlay(),
     tailwindcss(),
     metaImagesPlugin(),
@@ -39,6 +45,16 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    cssCodeSplit: false,
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
+        }
+      }
+    }
   },
   server: {
     host: "0.0.0.0",

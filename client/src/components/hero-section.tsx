@@ -20,9 +20,10 @@ export function HeroSection() {
             src="/Logo.png"
             alt="Logo"
             width="224"
-            height="auto"
+            height="224"
             className="h-auto w-56"
             fetchPriority="high"
+            decoding="async"
           />
         </div>
 
