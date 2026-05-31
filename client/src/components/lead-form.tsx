@@ -12,7 +12,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { motion } from "framer-motion";
 import { CheckCircle2, X } from "lucide-react";
 import { useState } from "react";
 import { submitLead } from "@/services/api";
@@ -118,22 +117,12 @@ export function LeadForm() {
 
   if (submitted) {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+      <div className="fixed inset-0 z-50 flex items-center justify-center animate-in fade-in duration-300">
+        <div
           className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           onClick={() => setSubmitted(false)}
         />
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.8, opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="relative z-10 w-full max-w-[500px] mx-4"
-        >
+        <div className="relative z-10 w-full max-w-[500px] mx-4 animate-in zoom-in-95 duration-500">
           <Card className="bg-gradient-to-b from-[#1a1a1a]/95 to-[#000000]/95 border border-white/10 backdrop-blur-md shadow-2xl p-12 text-center">
             <button
               onClick={() => setSubmitted(false)}
@@ -157,29 +146,16 @@ export function LeadForm() {
               </button>
             </div>
           </Card>
-        </motion.div>
+        </div>
       </div>
     );
   }
 
   return (
-    <motion.div
-      initial={{ rotateX: -10, y: 40, opacity: 0 }}
-      whileInView={{ rotateX: 0, y: 0, opacity: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{
-        type: "spring",
-        stiffness: 60,
-        damping: 20,
-        mass: 1
-      }}
-      style={{ perspective: 1000 }}
-      className="w-full max-w-[920px] mx-auto"
-    >
+    <div className="w-full max-w-[920px] mx-auto">
       <Card className="w-full bg-gradient-to-b from-[#1a1a1a]/95 to-[#000000]/95 border border-white/10 backdrop-blur-xl shadow-[0_20px_50px_rgba(255,208,0,0.05)] overflow-hidden">
         <CardContent className="p-0">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            {/* Left Column: Info */}
             <div className="p-8 md:p-10 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10 bg-black/40">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-display tracking-tight leading-tight">
                 Vamos crescer juntos?
@@ -206,7 +182,6 @@ export function LeadForm() {
               </div>
             </div>
 
-            {/* Right Column: Form */}
             <div className="p-8 md:p-10 bg-white/[0.02]">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -289,6 +264,6 @@ export function LeadForm() {
           </div>
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   );
 }
