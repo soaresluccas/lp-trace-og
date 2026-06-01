@@ -6,21 +6,21 @@ const testimonials = [
     name: "Vinicius Reis",
     handle: "@vinireispersonal",
     specialty: "Especialista no emagrecimento de mulheres com a Síndrome do Ovário Policístico",
-    image: "/Vini.jpeg",
+    image: "/Vini.webp",
   },
   {
     id: "renata",
     name: "Renata Almeida",
     handle: "@renatapersonaltreinadora",
     specialty: "Especialista em definição feminina",
-    image: "/Renata.jpeg",
+    image: "/Renata.webp",
   },
   {
     id: "edvelton",
     name: "Edvelton de Lima",
     handle: "@edveltonpersonal",
     specialty: "Especialista em definição feminina",
-    image: "/Edvelton.jpeg",
+    image: "/Edvelton.webp",
   },
 ];
 

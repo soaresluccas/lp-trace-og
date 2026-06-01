@@ -23,7 +23,7 @@ export function CTASection() {
             <div className="w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-yellow-400 to-yellow-300 p-[1px] mb-6 md:mb-8 shadow-[0_0_30px_rgba(255,208,0,0.3)] relative overflow-hidden">
               <div className="w-full h-full rounded-[15px] bg-[#0f0f0f] flex items-center justify-center relative z-10 p-2">
                 <img
-                  src="/Logo.png"
+                  src="/Logo.webp"
                   alt="TRACE Logo"
                   width="96"
                   height="96"

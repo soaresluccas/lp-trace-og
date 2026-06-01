@@ -21,7 +21,7 @@ export function FooterSection() {
 
         <div className="w-32 h-32 md:w-48 md:h-48 relative">
           <img
-            src="/Logo.png"
+            src="/Logo.webp"
             alt="TRACE Logo"
             width="192"
             height="192"

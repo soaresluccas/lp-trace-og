@@ -17,7 +17,7 @@ export function HeroSection() {
 
         <div className="mb-8 -mt-4">
           <img
-            src="/Logo.png"
+            src="/Logo.webp"
             alt="Logo"
             width="224"
             height="224"
