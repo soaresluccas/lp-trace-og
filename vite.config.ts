@@ -41,12 +41,20 @@ export default defineConfig({
     emptyOutDir: true,
     cssCodeSplit: false,
     minify: 'esbuild',
+    target: 'es2020',
     rollupOptions: {
       output: {
         manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
+          'react-vendor': ['react', 'react-dom', 'react/jsx-runtime'],
           'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
-        }
+          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-slot', '@radix-ui/react-label'],
+          'icons': ['lucide-react'],
+        },
+        compact: true,
+      },
+      treeshake: {
+        preset: 'recommended',
+        moduleSideEffects: false,
       }
     }
   },
