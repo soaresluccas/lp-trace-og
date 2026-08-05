@@ -32,7 +32,7 @@ export function HeroSection() {
         </h1>
 
         <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed mb-10">
-          Agende uma análise gratuita e descubra como estruturar o seu marketing para gerar alunos todos os dias, sem depender do algoritmo ou de indicação.
+          Agende uma apresentação gratuita e descubra como estruturar o seu marketing para gerar alunos todos os dias, sem depender do algoritmo ou de indicação.
         </p>
 
         <div className="-mt-4 mb-6 md:mb-12 md:-mb-44">
@@ -40,7 +40,7 @@ export function HeroSection() {
             onClick={scrollToForm}
             className="h-14 px-8 rounded-full text-lg font-bold bg-[#FFD000] hover:bg-[#E6BC00] text-black shadow-[0_0_30px_rgba(255,208,0,0.4)] hover:shadow-[0_0_50px_rgba(255,208,0,0.6)] hover:scale-105 transition-all duration-300 md:mb-24"
           >
-            Agendar Análise Gratuita
+            Agendar Apresentação Gratuita
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
